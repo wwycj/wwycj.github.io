@@ -26,6 +26,45 @@
   --highlight-gutter-foreground: #555;
   color-scheme: light;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg-color: #282828;
+    --content-bg-color: #333;
+    --card-bg-color: #555;
+    --text-color: #ccc;
+    --selection-bg: #bbb;
+    --selection-color: #333;
+    --blockquote-color: #bbb;
+    --link-color: #ccc;
+    --link-hover-color: #eee;
+    --brand-color: #ddd;
+    --brand-hover-color: #ddd;
+    --table-row-odd-bg-color: #282828;
+    --table-row-hover-bg-color: #363636;
+    --menu-item-bg-color: #555;
+    --theme-color: #222;
+    --btn-default-bg: #222;
+    --btn-default-color: #ccc;
+    --btn-default-border-color: #555;
+    --btn-default-hover-bg: #666;
+    --btn-default-hover-color: #ccc;
+    --btn-default-hover-border-color: #666;
+    --highlight-background: #1c1b1b;
+    --highlight-foreground: #fff;
+    --highlight-gutter-background: #323131;
+    --highlight-gutter-foreground: #e8e8e8;
+    color-scheme: dark;
+  }
+  img {
+    opacity: 0.75;
+  }
+  img:hover {
+    opacity: 0.9;
+  }
+  iframe {
+    color-scheme: light;
+  }
+}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -482,6 +521,125 @@ code.hljs {
 .hljs-strong {
   font-weight: bold
 }
+@media (prefers-color-scheme: dark) {
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+  Theme: StackOverflow Dark
+  Description: Dark theme as used on stackoverflow.com
+  Author: stackoverflow.com
+  Maintainer: @Hirse
+  Website: https://github.com/StackExchange/Stacks
+  License: MIT
+  Updated: 2021-05-15
+
+  Updated for @stackoverflow/stacks v0.64.0
+  Code Blocks: /blob/v0.64.0/lib/css/components/_stacks-code-blocks.less
+  Colors: /blob/v0.64.0/lib/css/exports/_stacks-constants-colors.less
+*/
+.hljs {
+  /* var(--highlight-color) */
+  color: #ffffff;
+  /* var(--highlight-bg) */
+  background: #1c1b1b
+}
+.hljs-subst {
+  /* var(--highlight-color) */
+  color: #ffffff
+}
+.hljs-comment {
+  /* var(--highlight-comment) */
+  color: #999999
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-meta .hljs-keyword,
+.hljs-doctag,
+.hljs-section {
+  /* var(--highlight-keyword) */
+  color: #88aece
+}
+.hljs-attr {
+  /* var(--highlight-attribute); */
+  color: #88aece
+}
+.hljs-attribute {
+  /* var(--highlight-symbol) */
+  color: #c59bc1
+}
+.hljs-name,
+.hljs-type,
+.hljs-number,
+.hljs-selector-id,
+.hljs-quote,
+.hljs-template-tag {
+  /* var(--highlight-namespace) */
+  color: #f08d49
+}
+.hljs-selector-class {
+  /* var(--highlight-keyword) */
+  color: #88aece
+}
+.hljs-string,
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr {
+  /* var(--highlight-variable) */
+  color: #b5bd68
+}
+.hljs-meta,
+.hljs-selector-pseudo {
+  /* var(--highlight-keyword) */
+  color: #88aece
+}
+.hljs-built_in,
+.hljs-title,
+.hljs-literal {
+  /* var(--highlight-literal) */
+  color: #f08d49
+}
+.hljs-bullet,
+.hljs-code {
+  /* var(--highlight-punctuation) */
+  color: #cccccc
+}
+.hljs-meta .hljs-string {
+  /* var(--highlight-variable) */
+  color: #b5bd68
+}
+.hljs-deletion {
+  /* var(--highlight-deletion) */
+  color: #de7176
+}
+.hljs-addition {
+  /* var(--highlight-addition) */
+  color: #76c490
+}
+.hljs-emphasis {
+  font-style: italic
+}
+.hljs-strong {
+  font-weight: bold
+}
+.hljs-formula,
+.hljs-operator,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+  /* purposely ignored */
+  
+}
+}
 code,
 kbd,
 figure.highlight,
@@ -534,6 +692,11 @@ figure.highlight {
   overflow: auto;
   position: relative;
   color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  figure.highlight {
+    color-scheme: dark;
+  }
 }
 figure.highlight pre {
   border: 0;
@@ -1222,7 +1385,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #b43e5e;
+    background: #870993;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2359,6 +2522,52 @@ ul.breadcrumb li:last-child {
   border-bottom-color: #111;
   color: #111;
 }
+@media (prefers-color-scheme: dark) {
+  .tag-cloud-0 {
+    border-bottom-color: #555;
+    color: #555;
+  }
+  .tag-cloud-1 {
+    border-bottom-color: #646464;
+    color: #646464;
+  }
+  .tag-cloud-2 {
+    border-bottom-color: #737373;
+    color: #737373;
+  }
+  .tag-cloud-3 {
+    border-bottom-color: #828282;
+    color: #828282;
+  }
+  .tag-cloud-4 {
+    border-bottom-color: #929292;
+    color: #929292;
+  }
+  .tag-cloud-5 {
+    border-bottom-color: #a1a1a1;
+    color: #a1a1a1;
+  }
+  .tag-cloud-6 {
+    border-bottom-color: #b0b0b0;
+    color: #b0b0b0;
+  }
+  .tag-cloud-7 {
+    border-bottom-color: #c0c0c0;
+    color: #c0c0c0;
+  }
+  .tag-cloud-8 {
+    border-bottom-color: #cfcfcf;
+    color: #cfcfcf;
+  }
+  .tag-cloud-9 {
+    border-bottom-color: #dedede;
+    color: #dedede;
+  }
+  .tag-cloud-10 {
+    border-bottom-color: #eee;
+    color: #eee;
+  }
+}
 mark.search-keyword {
   background: transparent;
   border-bottom: 1px dashed #ff2a2a;
@@ -2701,4 +2910,100 @@ header.header {
   .comments {
     padding: 10px 12px;
   }
+}
+/* ==================================================
+   1. 核心布局修复：圆角 + 消除边缘
+   ================================================== */
+/* 处理外层容器：圆角、溢出隐藏 */
+.column .header-inner {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5) !important; /* 阴影加深 */
+}
+/* 处理菜单区域：补回间距 */
+.site-nav {
+  padding: 10px 20px 20px !important;
+}
+.site-nav ul {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* 处理左上角黑色标题块：
+   在暗黑模式下，为了区分层次，我们让它保持纯黑，
+   或者稍微亮一点的黑 */
+.site-brand-container {
+  background: rgba(11,12,41,0.682) !important; /* 纯黑背景 */
+  border-radius: 0 !important;
+  padding: 20px 10px !important;
+  margin: 0 !important;
+}
+/* 标题颜色 (保持你的粉色，或者换成亮银色) */
+.site-title {
+  color: #cda8a8 !important;
+  font-weight: bold;
+}
+/* ==================================================
+   2. 深黑色配色方案 (Dark Theme)
+   ================================================== */
+/* --- 全局背景图设置 --- */
+body {
+/* 如果你还想要背景图，请保留这几行；
+     如果想要纯黑背景，把 background: url(...) 删掉，改成 background: #000; */
+  background: url("/images/background.jpg"); /* 建议换一张深色壁纸，或者删掉这行 */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  color: #ccc; /* 全局文字变灰白 */
+}
+/* --- 卡片背景变黑 (核心) --- */
+/* 使用 rgba(25, 25, 25, 0.95) 代表深灰色，微透 */
+.header-inner,
+.sidebar-inner,
+.post-block,
+.comments,
+.pagination,
+.site-nav {
+/* 菜单栏背景 */
+/* 这里调节卡片的黑度：
+     rgba(0,0,0, 0.9) = 纯黑微透
+     rgba(30,30,30, 0.95) = 深灰 (推荐，更有层次感) */
+  background: rgba(10,13,38,0.95) !important;
+  color: #ddd !important; /* 卡片内文字强制变白 */
+}
+/* ==================================================
+   3. 细节微调 (圆角保持)
+   ================================================== */
+/* 头像栏 */
+.column .sidebar-inner {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 5px 20px rgba(10,14,44,0.5) !important;
+}
+/* 文章卡片 */
+.main-inner .post-block {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 5px 20px rgba(16,11,46,0.32) !important;
+}
+/* 评论区 */
+.comments {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+/* 分页按钮 */
+.pagination {
+  border-radius: 20px !important;
+  padding: 10px !important;
+  border-top: none !important;
+}
+/* 选中文字的颜色 (改成高亮色，比如青色或橙色) */
+::selection {
+  background: #ff7600;
+  color: #fff;
+}
+/* 文章标题颜色 (确保在黑底上够亮) */
+.posts-expand .post-title-link {
+  color: #fff !important;
 }
