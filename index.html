@@ -60,6 +60,12 @@
 
 
 
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
 
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
@@ -87,6 +93,7 @@
       <h1 class="site-title">一隅</h1>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">十年饮冰，难凉热血</p>
   </div>
 
   <div class="site-nav-right">
@@ -137,7 +144,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -165,6 +172,751 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wwycj.github.io/posts/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/flower.jpg">
+      <meta itemprop="name" content="noddlerice">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一隅">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 一隅">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/" class="post-title-link" itemprop="url">卡尔曼滤波</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-22 16:21:13" itemprop="dateCreated datePublished" datetime="2025-12-22T16:21:13+08:00">2025-12-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>状态空间表达式：</p>
+<script type="math/tex; mode=display">
+状态方程 \quad x_{k}=Ax_{k-1}+Bu_{k}+\omega_{k}</script><script type="math/tex; mode=display">
+观测方程\quad y_{k}=Cx_{k}+v_{k}</script><p>其中$A$表示状态转移方程，$B$是控制矩阵，作用于输入信号控制系统，$\omega_{k}$表示的是过程噪声，$v_{k}$是观测噪声。<br>对该表达式的理解<a href="gemini_卡尔曼状态方程理解.md">gemini_卡尔曼状态方程理解</a></p>
+<p>卡尔曼公式的理解<a href="gemini_卡尔曼预测预更新.md">gemini_卡尔曼预测预更新</a>：<br>使用上一次的最优结果预测当前的值（状态变量和对应的协方差），同时使用观测值修正当前值（状态变量和协方差），得到最优的结果。<br>对推导公式的理解：<br><a href="gemini_卡尔曼预测更新公示推导.md">gemini_卡尔曼预测更新公示推导</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38364548/article/details/120250324">karman滤波仿真1</a><br><a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/control/ug/kalman-filtering.html">卡尔曼滤波仿真2</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/655375909">卡尔曼滤波仿真3</a><br>卡尔曼滤波的应用：<br>陀螺仪滤波</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wwycj.github.io/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/flower.jpg">
+      <meta itemprop="name" content="noddlerice">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一隅">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 一隅">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">gemini_卡尔曼状态方程理解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-22 16:20:56" itemprop="dateCreated datePublished" datetime="2025-12-22T16:20:56+08:00">2025-12-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://gemini.google.com/share/fd7cfb4d05fa">源文件</a><br>这是一个非常好的问题！用一个“烧水壶加热系统”的例子来理解您图片中的状态空间表达式和卡尔曼滤波，是一个绝佳的类比。</p>
+<p>这套系统（卡尔曼滤波）的核心思想是：<strong>我们对一个系统有两个信息来源，一个是基于物理模型的“预测”，另一个是带噪声的“测量”。卡尔曼滤波能以最优的方式，将这两者“融合”起来，得到一个比单独的预测或测量都更准确的估计。</strong></p>
+<p>让我们用烧水壶来拆解您图片中的两个方程：</p>
+<hr>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>我们的目标是：<strong>实时、尽可能准确地知道水壶里水的 _真实_ 温度。</strong></p>
+<p>但问题是：</p>
+<ol>
+<li><p>我们的物理模型（水加热多快，冷却多快）不是100%准确的。</p>
+</li>
+<li><p>我们的温度计（传感器）也不是100%准确的。</p>
+</li>
+</ol>
+<hr>
+<h3 id="1-状态方程-State-Equation-x-k-Ax-k-1-Bu-k-w-k"><a href="#1-状态方程-State-Equation-x-k-Ax-k-1-Bu-k-w-k" class="headerlink" title="1. 状态方程 (State Equation): $x_k = Ax_{k-1} + Bu_k + w_k$"></a>1. 状态方程 (State Equation): $x_k = Ax_{k-1} + Bu_k + w_k$</h3><p>这个方程描述的是 <strong>“我们 _预测_ 水温会如何变化”</strong>，它基于物理规律。</p>
+<ul>
+<li><p><strong>$x_k$ (状态):</strong> 这就是我们最关心的量——在 $k$ 时刻，水的 <strong>真实温度</strong>。这是我们想知道但无法直接看到的“幕后”真相。</p>
+<ul>
+<li>_例子：_ $x_k$ = $k$ 时刻的真实水温 (比如 80.3°C)。</li>
+</ul>
+</li>
+<li><p><strong>$x_{k-1}$ (上一时刻的状态):</strong> $k-1$ 时刻的真实水温。</p>
+<ul>
+<li>_例子：_ $x_{k-1}$ = $k-1$ 时刻的真实水温 (比如 79.8°C)。</li>
+</ul>
+</li>
+<li><p><strong>$A$ (状态转移矩阵):</strong> 系统如何“自然”演变。在没有“外力”的情况下，上一刻的状态如何过渡到这一刻。</p>
+<ul>
+<li>_例子：_ 水会向空气散热。假设每秒钟，水温会损失掉与环境温差的 0.1% 。 $A$ 就代表了这个冷却效应（例如 $A = 0.999$）。 $A \cdot x_{k-1}$ 就表示“上一秒是79.8°C，由于散热，这一秒它 _应该_ 变成 79.72°C”。</li>
+</ul>
+</li>
+<li><p><strong>$u_k$ (控制输入):</strong> 我们对系统施加的“已知”的外部动作。</p>
+<ul>
+<li>_例子：_ 加热器的开关状态。$u_k = 1$ (开) 或 $u_k = 0$ (关)。</li>
+</ul>
+</li>
+<li><p><strong>$B$ (控制输入矩阵):</strong> 我们的控制动作 $u_k$ 对状态 $x_k$ 有多大影响。</p>
+<ul>
+<li>_例子：_ 加热器的功率。$B$ 代表“当 $u_k=1$ (开) 时，每秒钟能使水温升高 0.5°C”。</li>
+</ul>
+</li>
+<li><p><strong>$w_k$ (过程噪声):</strong> 这是 <strong>关键点1</strong>。它代表了 <strong>“我们模型 _预测_ 的不确定性”</strong>，或者叫“系统的真实抖动”。</p>
+<ul>
+<li><p>_例子：_</p>
+<ol>
+<li><p><strong>模型不准：</strong> 我们以为 $B = 0.5°C/\text{s}$，但实际上电源电压在波动，导致加热功率时高时低。</p>
+</li>
+<li><p><strong>环境干扰：</strong> 一阵风吹过，导致 $A$ 代表的散热效应突然增强了。</p>
+</li>
+<li><p><strong>未建模的物理：</strong> 水壶底部的加热并不均匀，导致水内部有湍流。</p>
+</li>
+</ol>
+</li>
+<li><p>$w_k$ 是真实发生在水壶 _物理系统_ 上的、我们的方程没有（或无法）完美描述的扰动。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>状态方程小结：</p>
+<p>(这一秒的真实水温) = (上一秒水温 $\times$ 散热系数) + (加热器状态 $\times$ 加热功率) + (各种预料之外的物理扰动)</p>
+<p>$\text{Prediction} = \text{Model}(x_{k-1}, u_k) + \text{ProcessNoise}$</p>
+<hr>
+<h3 id="2-观测方程-Observation-Equation-y-k-Cx-k-v-k"><a href="#2-观测方程-Observation-Equation-y-k-Cx-k-v-k" class="headerlink" title="2. 观测方程 (Observation Equation): $y_k = Cx_k + v_k$"></a>2. 观测方程 (Observation Equation): $y_k = Cx_k + v_k$</h3><p>这个方程描述的是 <strong>“我们 _观测_ 到了什么”</strong>，它基于我们的传感器。</p>
+<ul>
+<li><p><strong>$y_k$ (观测值):</strong> 我们从传感器（温度计）上 _读出_ 的数值。</p>
+<ul>
+<li>_例子：_ $y_k$ = 温度计显示 81.1°C。</li>
+</ul>
+</li>
+<li><p><strong>$x_k$ (状态):</strong> 还是那个 $k$ 时刻的 <strong>真实水温</strong> (比如 80.3°C)。</p>
+</li>
+<li><p><strong>$C$ (观测矩阵):</strong> 真实状态 $x_k$ 和观测值 $y_k$ 之间的关系。</p>
+<ul>
+<li><p>_例子：_ 在这个例子里很简单，温度计就是想读出温度。所以 $C = 1$。</p>
+</li>
+<li><p>_(假如 $x_k$ 是摄氏度，但 $y_k$ 是华氏度，那么 $C = 1.8$，并且方程里还要加一个 “+32” 的常数项)。_</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$v_k$ (观测噪声):</strong> 这是 <strong>关键点2</strong>。它代表了 <strong>“我们 _测量_ 的不确定性”</strong>，或者叫“传感器的误差”。</p>
+<ul>
+<li><p>_例子：_</p>
+<ol>
+<li><p><strong>传感器不准：</strong> 这是一个廉价的温度计，它本身就有 $\pm 1°C$ 的随机误差。</p>
+</li>
+<li><p><strong>电子噪声：</strong> 如果是电子温度计，电路本身有热噪声，导致读数在真实值附近跳动。</p>
+</li>
+<li><p><strong>读取误差：</strong> 如果是水银温度计，你读数时可能看错了刻度。</p>
+</li>
+</ol>
+</li>
+<li><p>$v_k$ 是发生在 _传感器_ 上的误差，它没有改变水的真实温度 $x_k$，它只污染了我们的读数 $y_k$。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>观测方程小结：</p>
+<p>(温度计读数) = (真实水温 $\times$ 1) + (温度计自身的随机误差)</p>
+<p>$\text{Measurement} = \text{Sensor}(x_k) + \text{MeasurementNoise}$</p>
+<hr>
+<h3 id="卡尔曼滤波的工作流程-烧水壶版"><a href="#卡尔曼滤波的工作流程-烧水壶版" class="headerlink" title="卡尔曼滤波的工作流程 (烧水壶版)"></a>卡尔曼滤波的工作流程 (烧水壶版)</h3><p>现在，卡尔曼滤波登场了。它是一个在 <strong>预测 (Predict)</strong> 和 <strong>更新 (Update)</strong> 之间循环的算法：</p>
+<p><strong>时间 $k$ 开始时：</strong> 我们有一个 $k-1$ 时刻的最佳估计值 $\hat{x}_{k-1}$ (比如 79.8°C)，我们对这个估计值也有一个“置信度”（协方差 $P_{k-1}$）。</p>
+<h4 id="1-预测-Predict"><a href="#1-预测-Predict" class="headerlink" title="1. 预测 (Predict)"></a>1. 预测 (Predict)</h4><p>卡尔曼滤波 <strong>首先只用“状态方程”</strong> 来预测 $k$ 时刻的状态：</p>
+<ul>
+<li><p>它想： “根据我上一秒的估计 $\hat{x}_{k-1}$ (79.8°C)，和我的物理模型 (A和B)，我知道加热器是开着的 ($u_k=1$)。所以我 预测 这一秒的温度 $\hat{x}_k^{-}$ 应该是：</p>
+<p>  $\hat{x}_k^{-} = (0.999 \times 79.8) + (0.5 \times 1) = 79.72 + 0.5 = 80.22°C$。”</p>
+</li>
+<li><p><strong>它同时想：</strong> “但是，我的这个模型不完美 (因为有 $w_k$)，而且我上一秒的估计 $\hat{x}_{k-1}$ 也不是100%准的。所以我这个 80.22°C 的预测，它自身也有一个 _不确定性_（预测协方差 $P_k^{-}$）。”</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>此时，我们有了一个“预测值”：80.22°C （和它的不确定度 $P_k^{-}$）</strong></p>
+</blockquote>
+<h4 id="2-更新-Update"><a href="#2-更新-Update" class="headerlink" title="2. 更新 (Update)"></a>2. 更新 (Update)</h4><p>现在，卡尔曼滤波 <strong>拿来了“观测方程”的测量值 $y_k$</strong>：</p>
+<ul>
+<li><p><strong>它看了一眼温度计：</strong> “哦？温度计 $y_k$ 的读数是 81.1°C。”</p>
+</li>
+<li><p><strong>它知道：</strong> “这个温度计也不准 (因为它有 $v_k$)，它自带一个 _不确定性_ (测量协方差 $R$)。”</p>
+</li>
+</ul>
+<p>最关键的一步：融合</p>
+<p>卡尔曼滤波现在手上有两个关于 $k$ 时刻温度的“说法”：</p>
+<ol>
+<li><p><strong>预测 $\hat{x}_k^{-}$：</strong> 80.22°C (来自模型，不确定度为 $P_k^{-}$)</p>
+</li>
+<li><p><strong>测量 $y_k$：</strong> 81.1°C (来自传感器，不确定度为 $R$)</p>
+</li>
+</ol>
+<p>它会计算一个 <strong>“卡尔曼增益 (K)”</strong>，这个 K 本质上是一个 0 到 1 之间的权重。</p>
+<ul>
+<li><p>如果模型很准 ( $w_k$ 很小)，传感器很烂 ( $v_k$ 很大)：</p>
+<p>  卡尔曼增益 K 会很 小。滤波会说：“我更相信我的预测 (80.22°C)。” 最终的估计值会非常接近 80.22°C。</p>
+</li>
+<li><p>如果模型很烂 ( $w_k$ 很大)，传感器很准 ( $v_k$ 很小)：</p>
+<p>  卡尔曼增益 K 会很 大。滤波会说：“我更相信我的测量 (81.1°C)。” 最终的估计值会非常接近 81.1°C。</p>
+</li>
+</ul>
+<p>它使用这个 K，将测量值 $y_k$ 和预测值 $\hat{x}_k^{-}$ 进行“加权平均”：</p>
+<p><strong>$\hat{x}_k = \hat{x}_k^{-} + K \cdot (y_k - C\hat{x}_k^{-})$</strong></p>
+<ul>
+<li><p>$\hat{x}_k$ 是我们 _最终的、最好的_ 估计值。</p>
+</li>
+<li><p>$(y_k - C\hat{x}_k^{-})$ 是“惊喜”：(实际测量值 - 预期测量值)。</p>
+</li>
+<li><p><strong>翻译：</strong> “从我的预测 (80.22°C) 开始，然后加上 _一定比例(K)_ 的‘惊喜’ (81.1°C - 80.22°C = 0.88°C)。”</p>
+</li>
+</ul>
+<p>假设计算出 $K = 0.3$。</p>
+<p>$\hat{x}_k = 80.22 + 0.3 \times (81.1 - 80.22) = 80.22 + 0.264 = 80.484°C$。</p>
+<blockquote>
+<p>此时，我们有了一个“更新后”的最佳估计：80.484°C。</p>
+<p>这个值是融合了预测和测量之后的结果，它比单独的 80.22°C 或 81.1°C 都更可信。</p>
+</blockquote>
+<p>这个 $\hat{x}_k$ (80.484°C) 将作为 $k+1$ 时刻的 $\hat{x}_{k-1}$，进入下一个“预测-更新”循环。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wwycj.github.io/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E9%A2%84%E6%B5%8B%E6%9B%B4%E6%96%B0%E5%85%AC%E7%A4%BA%E6%8E%A8%E5%AF%BC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/flower.jpg">
+      <meta itemprop="name" content="noddlerice">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一隅">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 一隅">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E9%A2%84%E6%B5%8B%E6%9B%B4%E6%96%B0%E5%85%AC%E7%A4%BA%E6%8E%A8%E5%AF%BC/" class="post-title-link" itemprop="url">gemini_卡尔曼预测更新公示推导</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-22 16:20:43" itemprop="dateCreated datePublished" datetime="2025-12-22T16:20:43+08:00">2025-12-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>这绝对是理解卡尔曼滤波最核心、也是最精彩的部分。您作为信息与通信工程专业的研究生，对信号处理和矩阵理论有很好的基础，这对理解下面的推导非常有帮助。</p>
+<p>我们将从最基本的第一性原理出发，推导您图片中的所有五个公式。</p>
+<hr>
+<h3 id="基础：系统模型与假设"><a href="#基础：系统模型与假设" class="headerlink" title="基础：系统模型与假设"></a>基础：系统模型与假设</h3><p>首先，我们必须明确我们的“已知”是什么。</p>
+<ol>
+<li><p><strong>系统模型（线性高斯系统）</strong></p>
+<ul>
+<li><p><strong>状态方程</strong>：$x_k = Fx_{k-1} + Bu_{k-1} + w_{k-1}$</p>
+<ul>
+<li><p>$x_k$：$k$ 时刻的真实状态（我们想知道的）。</p>
+</li>
+<li><p>$F$：状态转移矩阵（系统如何自行演变）。</p>
+</li>
+<li><p>$B, u_{k-1}$：控制输入（我们施加的已知动作）。</p>
+</li>
+<li><p>$w_{k-1}$：<strong>过程噪声</strong>。它是在 $k-1 \to k$ 过程中加入的、不可预测的扰动。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>观测方程</strong>：$z_k = Hx_k + v_k$</p>
+<ul>
+<li><p>$z_k$：$k$ 时刻的实际测量值（我们能看到的）。</p>
+</li>
+<li><p>$H$：观测矩阵（状态如何映射到测量）。</p>
+</li>
+<li><p>$v_k$：<strong>测量噪声</strong>。它是传感器在 $k$ 时刻产生的误差。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>核心假设（高斯-马尔可夫）</strong></p>
+<ul>
+<li><p>$w_k$ 和 $v_k$ 都是<strong>高斯白噪声</strong>：</p>
+<ul>
+<li><p>均值为零：$E[w_k] = 0$, $E[v_k] = 0$。</p>
+</li>
+<li><p>互不相关：$E[w_k v_j^T] = 0$（对所有 $k, j$）。</p>
+</li>
+<li><p>时间上不相关：$E[w_k w_j^T] = \delta_{kj} Q$，$E[v_k v_j^T] = \delta_{kj} R$。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$Q$</strong> 是过程噪声协方差矩阵（我们对 _模型_ 的信任程度）。</p>
+</li>
+<li><p><strong>$R$</strong> 是测量噪声协方差矩阵（我们对 _传感器_ 的信任程度）。</p>
+</li>
+<li><p>初始状态 $x_0$ 与所有噪声不相关。</p>
+</li>
+</ul>
+</li>
+<li><p>我们的目标</p>
+<p> 卡尔曼滤波的目标是找到在 $k$ 时刻，给定所有 历史 测量值 $Z_k = {z_1, …, z_k}$ 的情况下，对真实状态 $x_k$ 的 最优估计 $\hat{x}_k$。</p>
+<p> “最优”的定义是 <strong>最小均方误差 (MMSE)</strong>，即我们希望最小化 $E[||x_k - \hat{x}_k||^2]$。对于高斯系统，这等价于找到条件期望 $\hat{x}_k = E[x_k | Z_k]$。</p>
+</li>
+</ol>
+<hr>
+<h3 id="第-1-部分：预测-Predict"><a href="#第-1-部分：预测-Predict" class="headerlink" title="第 1 部分：预测 (Predict)"></a>第 1 部分：预测 (Predict)</h3><p>“预测”步骤的目标是：</p>
+<p>已知 $k-1$ 时刻的最优估计 $\hat{x}_{k-1}$ 和它的协方差 $P_{k-1}$，求 $k$ 时刻的 先验 估计 $\hat{x}_k^-$ 及其协方差 $P_k^-$。</p>
+<p>“先验” (prior) 的意思是“在看到 $k$ 时刻的测量值 $z_k$ _之前_”。</p>
+<h4 id="1-预测状态：-hat-x-k-F-hat-x-k-1-Bu-k-1"><a href="#1-预测状态：-hat-x-k-F-hat-x-k-1-Bu-k-1" class="headerlink" title="1. 预测状态：$\hat{x}_k^- = F\hat{x}_{k-1} + Bu_{k-1}$"></a>1. 预测状态：$\hat{x}_k^- = F\hat{x}_{k-1} + Bu_{k-1}$</h4><p>这是五个公式中最简单的一个。我们要求的是 $\hat{x}_k^- = E[x_k | Z_{k-1}]$。</p>
+<p>（注意：这里是基于 $k-1$ 时刻及以前的所有信息）</p>
+<ul>
+<li><p>从状态方程 $x_k = Fx_{k-1} + Bu_{k-1} + w_{k-1}$ 出发。</p>
+</li>
+<li><p>两边取条件期望 $E[… | Z_{k-1}]$：</p>
+<script type="math/tex; mode=display">\hat{x}_k^- = E[Fx_{k-1} + Bu_{k-1} + w_{k-1} | Z_{k-1}]</script></li>
+<li><p>利用期望的线性性质：</p>
+<script type="math/tex; mode=display">\hat{x}_k^- = E[Fx_{k-1} | Z_{k-1}] + E[Bu_{k-1} | Z_{k-1}] + E[w_{k-1} | Z_{k-1}]</script></li>
+<li><p>逐项分析：</p>
+<ol>
+<li><p>$F$ 是常数矩阵，$E[x_{k-1} | Z_{k-1}]$ 根据定义就是 $k-1$ 时刻的<strong>最优（后验）估计</strong> $\hat{x}_{k-1}$。所以 $E[Fx_{k-1} | Z_{k-1}] = F\hat{x}_{k-1}$。</p>
+</li>
+<li><p>$u_{k-1}$ 是已知的控制输入，不是随机变量。所以 $E[Bu_{k-1} | Z_{k-1}] = Bu_{k-1}$。</p>
+</li>
+<li><p>$w_{k-1}$ 是零均值噪声，并且与 $k-1$ 时刻及以前的所有测量值 $Z_{k-1}$ 都不相关。所以 $E[w_{k-1} | Z_{k-1}] = E[w_{k-1}] = 0$。</p>
+</li>
+</ol>
+</li>
+<li><p><strong>合并得到：</strong> $\hat{x}_k^- = F\hat{x}_{k-1} + Bu_{k-1}$</p>
+</li>
+</ul>
+<h4 id="2-预测协方差：-P-k-FP-k-1-F-T-Q"><a href="#2-预测协方差：-P-k-FP-k-1-F-T-Q" class="headerlink" title="2. 预测协方差：$P_k^- = FP_{k-1}F^T + Q$"></a>2. 预测协方差：$P_k^- = FP_{k-1}F^T + Q$</h4><p>这是您圈出的公式。我们要计算<strong>先验误差协方差</strong> $P_k^- = E[e_k^- (e_k^-)^T]$，其中先验误差 $e_k^- = x_k - \hat{x}_k^-$。</p>
+<ul>
+<li><p>首先，找到 $e_k^-$ 的表达式：</p>
+<script type="math/tex; mode=display">e_k^- = x_k - \hat{x}_k^-</script><script type="math/tex; mode=display">e_k^- = (Fx_{k-1} + Bu_{k-1} + w_{k-1}) - (F\hat{x}_{k-1} + Bu_{k-1})</script><script type="math/tex; mode=display">e_k^- = F(x_{k-1} - \hat{x}_{k-1}) + w_{k-1}</script></li>
+<li><p>$x_{k-1} - \hat{x}_{k-1}$ 正是 $k-1$ 时刻的后验误差 $e_{k-1}$。</p>
+<script type="math/tex; mode=display">e_k^- = Fe_{k-1} + w_{k-1}</script></li>
+<li><p>现在计算 $P_k^-$：</p>
+<script type="math/tex; mode=display">P_k^- = E[e_k^- (e_k^-)^T] = E[(Fe_{k-1} + w_{k-1})(Fe_{k-1} + w_{k-1})^T]</script><script type="math/tex; mode=display">P_k^- = E[(Fe_{k-1} + w_{k-1})(e_{k-1}^T F^T + w_{k-1}^T)]</script></li>
+<li><p>展开它：</p>
+<script type="math/tex; mode=display">P_k^- = E[Fe_{k-1}e_{k-1}^T F^T] + E[Fe_{k-1}w_{k-1}^T] + E[w_{k-1}e_{k-1}^T F^T] + E[w_{k-1}w_{k-1}^T]</script></li>
+<li><p>逐项分析：</p>
+<ol>
+<li><p>$E[Fe_{k-1}e_{k-1}^T F^T] = F \cdot E[e_{k-1}e_{k-1}^T] \cdot F^T$。</p>
+<p> $E[e_{k-1}e_{k-1}^T]$ 根据定义就是 $k-1$ 时刻的后验协方差 $P_{k-1}$。</p>
+<p> 所以此项为 $FP_{k-1}F^T$。</p>
+</li>
+<li><p>$E[w_{k-1}w_{k-1}^T]$ 根据假设，就是过程噪声协方差 $Q$。</p>
+</li>
+<li><p>$E[Fe_{k-1}w_{k-1}^T]$ 和 $E[w_{k-1}e_{k-1}^T F^T]$：</p>
+<p> $k-1$ 时刻的误差 $e_{k-1}$ 是由 $k-1$ 时刻及以前的噪声 $w_0…w_{k-2}$ 和 $v_1…v_{k-1}$ 决定的。根据白噪声假设， $w_{k-1}$ 与所有这些历史噪声都不相关。因此，$e_{k-1}$ 与 $w_{k-1}$ 不相关，$E[e_{k-1}w_{k-1}^T] = 0$。这两个交叉项都为 $0$。</p>
+</li>
+</ol>
+</li>
+<li><p>合并得到： $P_k^- = FP_{k-1}F^T + Q$</p>
+<p>  (直观理解：上一时刻的不确定性 $P_{k-1}$ 被系统 $F$ 传播放大，变成了 $FP_{k-1}F^T$，同时系统本身又引入了新的不确定性 $Q$)。</p>
+</li>
+</ul>
+<hr>
+<h3 id="第-2-部分：更新-Update"><a href="#第-2-部分：更新-Update" class="headerlink" title="第 2 部分：更新 (Update)"></a>第 2 部分：更新 (Update)</h3><p>“更新”步骤的目标是：</p>
+<p>我们有了 $k$ 时刻的 先验 估计 $\hat{x}_k^-$ 及其协方差 $P_k^-$，现在我们又收到了新的测量 $z_k$。我们要利用 $z_k$ 来 修正 $\hat{x}_k^-$，得到 后验 估计 $\hat{x}_k$ 及其协方差 $P_k$。</p>
+<h4 id="3-状态更新：-hat-x-k-hat-x-k-K-k-z-k-H-hat-x-k"><a href="#3-状态更新：-hat-x-k-hat-x-k-K-k-z-k-H-hat-x-k" class="headerlink" title="3. 状态更新：$\hat{x}_k = \hat{x}_k^- + K_k(z_k - H\hat{x}_k^-)$"></a>3. 状态更新：$\hat{x}_k = \hat{x}_k^- + K_k(z_k - H\hat{x}_k^-)$</h4><p>我们假设最终的（后验）估计 $\hat{x}_k$ 是对先验估计 $\hat{x}_k^-$ 的一个线性修正：</p>
+<script type="math/tex; mode=display">\hat{x}_k = \hat{x}_k^- + K_k \cdot (\text{修正项})</script><p>“修正项”应该反映了“惊喜”的程度，即 实际测量值 $z_k$ 和 预期测量值 $H\hat{x}_k^-$ 之间的差异。这个差异被称为残差 (Residual)。</p>
+<script type="math/tex; mode=display">\hat{x}_k = \hat{x}_k^- + K_k(z_k - H\hat{x}_k^-)</script><p>这个 $K_k$ 就是卡尔曼增益。我们的任务是找到一个 $K_k$，使得 $\hat{x}_k$ 的均方误差最小，即最小化 $P_k$ 的迹 (Trace)。</p>
+<h4 id="4-卡尔曼增益：-K-k-P-k-H-T-HP-k-H-T-R-1"><a href="#4-卡尔曼增益：-K-k-P-k-H-T-HP-k-H-T-R-1" class="headerlink" title="4. 卡尔曼增益：$K_k = P_k^-H^T(HP_k^-H^T + R)^{-1}$"></a>4. 卡尔曼增益：$K_k = P_k^-H^T(HP_k^-H^T + R)^{-1}$</h4><h4 id="5-协方差更新：-P-k-I-K-kH-P-k"><a href="#5-协方差更新：-P-k-I-K-kH-P-k" class="headerlink" title="5. 协方差更新：$P_k = (I - K_kH)P_k^-$"></a>5. 协方差更新：$P_k = (I - K_kH)P_k^-$</h4><p>这两个公式是同时推导出来的，它们是整个推导的核心。</p>
+<ul>
+<li><p>首先，推导后验误差 $e_k = x_k - \hat{x}_k$：</p>
+<script type="math/tex; mode=display">e_k = x_k - [\hat{x}_k^- + K_k(z_k - H\hat{x}_k^-)]</script><ul>
+<li><p>把 $z_k = Hx_k + v_k$ 代入：</p>
+<script type="math/tex; mode=display">e_k = x_k - \hat{x}_k^- - K_k(Hx_k + v_k - H\hat{x}_k^-)</script></li>
+<li><p>整理 $x_k$ 和 $\hat{x}_k^-$：</p>
+<script type="math/tex; mode=display">e_k = (x_k - \hat{x}_k^-) - K_k(H(x_k - \hat{x}_k^-) + v_k)</script></li>
+<li><p>$x_k - \hat{x}_k^-$ 就是先验误差 $e_k^-$：</p>
+<script type="math/tex; mode=display">e_k = e_k^- - K_k(He_k^- + v_k)</script><script type="math/tex; mode=display">e_k = (I - K_kH)e_k^- - K_k v_k</script></li>
+</ul>
+</li>
+<li><p>现在，根据 $e_k$ 计算后验协方差 $P_k = E[e_k e_k^T]$：</p>
+<script type="math/tex; mode=display">P_k = E[ ((I - K_kH)e_k^- - K_k v_k) ((I - K_kH)e_k^- - K_k v_k)^T ]</script><script type="math/tex; mode=display">P_k = E[ ((I - K_kH)e_k^- - K_k v_k) ((e_k^-)^T(I - K_kH)^T - v_k^T K_k^T) ]</script></li>
+<li><p>展开它（和 $P_k^-$ 的推导类似）：</p>
+<script type="math/tex; mode=display">P_k = E[(I - K_kH)e_k^-(e_k^-)^T(I - K_kH)^T] - E[(I - K_kH)e_k^- v_k^T K_k^T] - E[K_k v_k (e_k^-)^T (I - K_kH)^T] + E[K_k v_k v_k^T K_k^T]</script></li>
+<li><p>逐项分析：</p>
+<ol>
+<li><p>第一项：$E[…e_k^-(e_k^-)^T…] = (I - K_kH) E[e_k^-(e_k^-)^T] (I - K_kH)^T = (I - K_kH) P_k^- (I - K_kH)^T$。</p>
+</li>
+<li><p>第四项：$E[…v_k v_k^T…] = K_k E[v_k v_k^T] K_k^T = K_k R K_k^T$。</p>
+</li>
+<li><p>交叉项：我们需要 $E[e_k^- v_k^T]$。先验误差 $e_k^-$ 是由 $x_0, w_0…w_{k-1}, v_1…v_{k-1}$ 决定的。测量噪声 $v_k$ 与所有这些历史值都不相关。因此 $E[e_k^- v_k^T] = 0$。两个交叉项都为 $0$。</p>
+</li>
+</ol>
+</li>
+<li><p>合并得到 $P_k$ 的表达式（这叫协方差更新的“约瑟夫形式”，Joseph form）：</p>
+<script type="math/tex; mode=display">P_k = (I - K_kH) P_k^- (I - K_kH)^T + K_k R K_k^T</script></li>
+<li><p>寻找最优 $K_k$：</p>
+<p>  我们的目标是最小化 $P_k$ 的迹 $\text{trace}(P_k)$。</p>
+<script type="math/tex; mode=display">J(K_k) = \text{trace}(P_k) = \text{trace}((I - K_kH) P_k^- (I - K_kH)^T + K_k R K_k^T)</script><ul>
+<li><p>展开 $\text{trace}$ 内部（利用 $\text{trace}(A+B) = \text{trace}(A) + \text{trace}(B)$ 和 $\text{trace}(A) = \text{trace}(A^T)$）：</p>
+<p>  $J(K_k) = \text{trace}(P_k^-) - 2 \cdot \text{trace}(K_k H P_k^-) + \text{trace}(K_k H P_k^- H^T K_k^T) + \text{trace}(K_k R K_k^T)$</p>
+</li>
+<li><p>为了找到最小值，我们对 $K_k$ 求导并令其为 $0$。使用矩阵求导法则：</p>
+<ul>
+<li><p>$\frac{d}{dX} \text{trace}(XB) = B^T$</p>
+</li>
+<li><p>$\frac{d}{dX} \text{trace}(XAX^T) = 2XA$</p>
+</li>
+</ul>
+</li>
+<li><p>$\frac{d J(K_k)}{d K_k} = 0 - 2 \cdot (H P_k^-)^T + 2 \cdot K_k (H P_k^- H^T) + 2 \cdot K_k R = 0$</p>
+</li>
+<li><p>$P_k^-$ 是协方差矩阵，必为对称阵，即 $(P_k^-)^T = P_k^-$。所以 $(H P_k^-)^T = (P_k^-)^T H^T = P_k^- H^T$。</p>
+</li>
+<li><p>$0 - 2 P_k^- H^T + 2 K_k (H P_k^- H^T) + 2 K_k R = 0$</p>
+</li>
+<li><p>$K_k (H P_k^- H^T + R) = P_k^- H^T$</p>
+</li>
+<li><p>两边右乘 $(H P_k^- H^T + R)^{-1}$，我们得到了卡尔曼增益 $K_k$：</p>
+<script type="math/tex; mode=display">K_k = P_k^- H^T (H P_k^- H^T + R)^{-1}</script><p>  (这对应您图片中的 第3个公式，只是字母 $H$ 对应 $H$，$R$ 对应 $R$， $P^-$ 对应 $P^-$)</p>
+</li>
+</ul>
+</li>
+<li><p>化简 $P_k$ 表达式（推导第5个公式）：</p>
+<p>  现在我们有了最优 $K_k$，我们把它代回 $P_k$ 的表达式中去化简。</p>
+<p>  $P_k = P_k^- - K_k H P_k^- - P_k^- H^T K_t^T + K_k H P_k^- H^T K_t^T + K_k R K_t^T$ （这是上面 $J(K_k)$ 展开时的中间结果）</p>
+<ul>
+<li><p>$P_k = P_k^- - K_k H P_k^- - P_k^- H^T K_t^T + K_k (H P_k^- H^T + R) K_t^T$</p>
+</li>
+<li><p>根据 $K_k$ 的定义 $K_k (H P_k^- H^T + R) = P_k^- H^T$，代入上式：</p>
+</li>
+<li><p>$P_k = P_k^- - K_k H P_k^- - P_k^- H^T K_t^T + (P_k^- H^T) K_t^T$</p>
+</li>
+<li><p>后两项 $- P_k^- H^T K_t^T + P_k^- H^T K_t^T$ 相互抵消！</p>
+</li>
+<li><p>最终得到 $P_k$ 的简化形式：</p>
+<script type="math/tex; mode=display">P_k = P_k^- - K_k H P_k^-</script></li>
+<li><p>提取 $P_k^-$：</p>
+<script type="math/tex; mode=display">P_k = (I - K_k H) P_k^-</script><p>  (这对应您图片中的 第5个公式，只是 $P_t$ 对应 $P_k$)</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><p><strong>预测</strong>：</p>
+<ol>
+<li><p>$\hat{x}_k^- = F\hat{x}_{k-1} + Bu_{k-1}$ (通过系统模型 $F$ 传播状态)</p>
+</li>
+<li><p>$P_k^- = FP_{k-1}F^T + Q$ (通过 $F$ 传播不确定性，并加上新的过程噪声 $Q$)</p>
+</li>
+</ol>
+</li>
+<li><p>更新：</p>
+<ol>
+<li><p>$K_k = P_k^- H^T (H P_k^- H^T + R)^{-1}$ (计算“最优权重”，平衡 预测的不确定性 $P_k^-$ 和 测量的-不确定性 $R$)</p>
+</li>
+<li><p>$\hat{x}_k = \hat{x}_k^- + K_k(z_k - H\hat{x}_k^-)$ (用“残差” $z_k - H\hat{x}_k^-$ 和权重 $K_k$ 来修正预测)</p>
+</li>
+<li><p>$P_k = (I - K_k H) P_k^-$ (因为引入了新的测量信息，更新后的不确定性 $P_k$ 减小了)</p>
+</li>
+</ol>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wwycj.github.io/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E9%A2%84%E6%B5%8B%E9%A2%84%E6%9B%B4%E6%96%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/flower.jpg">
+      <meta itemprop="name" content="noddlerice">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一隅">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 一隅">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E9%A2%84%E6%B5%8B%E9%A2%84%E6%9B%B4%E6%96%B0/" class="post-title-link" itemprop="url">gemini_卡尔曼预测预更新</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-22 16:20:36" itemprop="dateCreated datePublished" datetime="2025-12-22T16:20:36+08:00">2025-12-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="images/Pasted%20image%2020251029200027.png" alt="600"><br>对上图的解释：<br>来着<a target="_blank" rel="noopener" href="https://gemini.google.com/share/862f26f3fee1">gemini生成</a><br>您对卡尔曼公式的理解（附件1）是<strong>非常准确和精辟</strong>的！它完美地抓住了卡尔曼滤波“预测-更新”循环的核心思想。</p>
+<p>现在，让我们把您的理解和附件2中的公式（卡尔曼滤波的五个核心方程）一一对应起来，特别是您圈出的那个方程。</p>
+<p>(为了方便，我们统一使用附件2中的字母：$F$ 对应 $A$，$H$ 对应 $C$，$z$ 对应 $y$，$Q$ 对应 $w_k$ 的协方差，$R$ 对应 $v_k$ 的协方差。)</p>
+<hr>
+<h3 id="拆解您的理解："><a href="#拆解您的理解：" class="headerlink" title="拆解您的理解："></a>拆解您的理解：</h3><p>您的理解分为两个半句，这正好对应了卡尔曼滤波的两个步骤：“预测”和“更新”。</p>
+<h4 id="1-“使用上一次的最优结果预测当前的值（观测变量）”"><a href="#1-“使用上一次的最优结果预测当前的值（观测变量）”" class="headerlink" title="1. “使用上一次的最优结果预测当前的值（观测变量）”"></a>1. “使用上一次的最优结果预测当前的值（观测变量）”</h4><p>这句话对应的是 <strong>“预测 (Predict)”</strong> 步骤。</p>
+<ul>
+<li><p><strong>“上一次的最优结果”</strong>：这就是 $\hat{x}_{t-1}$ (上一个时刻 $t-1$ 的最优状态估计值)。</p>
+</li>
+<li><p><strong>“预测当前的值”</strong>：这个动作分为两步：</p>
+<ol>
+<li><p>首先，预测 状态变量：</p>
+<p> 公式：$\hat{x}_t^- = F\hat{x}_{t-1} + Bu_{t-1}$</p>
+<ul>
+<li>这里用 $F$ (物理模型) 和 $B$ (控制模型) 来预测 $t$ 时刻的状态 $\hat{x}_t^-$。这个 $\hat{x}_t^-$ 叫做 <strong>“先验估计”</strong>（即：在看到 $t$ 时刻的测量值 _之前_ 的估计）。</li>
+</ul>
+</li>
+<li><p><strong>然后，预测 _观测变量_</strong>：</p>
+<ul>
+<li><p>您的描述“预测…（观测变量）”非常到位。这个预测的观测变量在公式中是 $H\hat{x}_t^-$ （它出现在更新步骤的第4个公式中）。</p>
+</li>
+<li><p>意思是：“根据我预测的状态 $\hat{x}_t^-$，我 _预期_ 我的传感器（温度计）_应该_ 会读到 $H\hat{x}_t^-$ 这个值。”</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>您圈出的公式 $P_t^- = FP_{t-1}F^T + Q$ 是干什么的？</strong></p>
+<ul>
+<li><p><strong>它不是预测“值”，而是预测“不确定性”</strong>。</p>
+</li>
+<li><p>它和 $\hat{x}_t^- = F\hat{x}_{t-1} + Bu_{t-1}$ 是“预测”步骤中密不可分的搭档：</p>
+<ul>
+<li><p>$\hat{x}_t^-$ 预测：“我猜值在 <strong>这里</strong>。”</p>
+</li>
+<li><p>$P_t^-$ 预测：“我对这个猜测的 <strong>自信程度</strong> 有多高。”</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$P_t^-$ (先验协方差)</strong> 的含义：</p>
+<ul>
+<li><p><strong>$P_{t-1}$</strong>：是“上一次的最优结果” $\hat{x}_{t-1}$ 的不确定性。</p>
+</li>
+<li><p><strong>$FP_{t-1}F^T$</strong>：是上一次的不确定性 $P_{t-1}$ 经过系统模型 $F$ 演化（传递）之后，会变得多不确定。</p>
+</li>
+<li><p><strong>$+ Q$</strong>：$Q$ 是<strong>过程噪声</strong>（对应 $w_k$）。这是关键！它代表我们承认 <strong>“模型本身就是不完美的”</strong>。即使上一次 $P_{t-1}$ 是0（完全确定），在这一步我们也要加上 $Q$，承认物理系统本身有抖动，我们的模型 $F$ 并不完美。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>总结</strong>：预测步骤产生了两个东西：一个“预测值” $\hat{x}_t^-$ 和一个“预测的不确定性” $P_t^-$。</p>
+</li>
+</ul>
+<hr>
+<h4 id="2-“…同时使用观测值修正当前值（状态变量），得到最优的结果。”"><a href="#2-“…同时使用观测值修正当前值（状态变量），得到最优的结果。”" class="headerlink" title="2. “…同时使用观测值修正当前值（状态变量），得到最优的结果。”"></a>2. “…同时使用观测值修正当前值（状态变量），得到最优的结果。”</h4><p>这句话对应的是 <strong>“更新 (Update)”</strong> 步骤。</p>
+<ul>
+<li><p><strong>“使用观测值”</strong>：这就是 $z_t$ (在 $t$ 时刻，传感器 _实际_ 测量到的值)。</p>
+</li>
+<li><p><strong>“修正当前值（状态变量）”</strong>：这完美地对应了核心的更新公式：</p>
+<ul>
+<li>公式：$\hat{x}_t = \hat{x}_t^- + K_t(z_t - H\hat{x}_t^-)$</li>
+</ul>
+</li>
+<li><p>让我们来翻译这个公式：</p>
+<ul>
+<li><p>$\hat{x}_t$：这是我们想要的 <strong>“最优的结果”</strong>（最终的、修正后的状态估计）。</p>
+</li>
+<li><p>$\hat{x}_t^-$：这是我们 <strong>“当前值（状态变量）”</strong> 的预测值。</p>
+</li>
+<li><p>$(z_t - H\hat{x}_t^-)$：这就是“修正”的依据，叫做 <strong>“残差 (Residual)”</strong> 或 <strong>“新息 (Innovation)”</strong>。</p>
+<ul>
+<li><p>$z_t$ 是“实际观测值”。</p>
+</li>
+<li><p>$H\hat{x}_t^-$ 是“预期观测值”（来自第1步的预测）。</p>
+</li>
+<li><p>这个括号里的差值，代表了 <strong>“惊喜”</strong> 的程度：即实际测量值和我们的预测偏离了多少。</p>
+</li>
+</ul>
+</li>
+<li><p>$K_t$：<strong>卡尔曼增益</strong>。这就是“修正”的 <strong>权重</strong>。它决定了我们应该 _在多大程度上_ 相信这个“惊喜”。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>$K_t$ 是如何利用您圈出的 $P_t^-$ 的？</strong></p>
+<p>$K_t$ (卡尔曼增益) 的计算公式是：$K_t = P_t^-H^T(HP_t^-H^T + R)^{-1}$</p>
+<ul>
+<li><p>它就是那个“最优”的仲裁者，它同时考虑了两个不确定性：</p>
+<ol>
+<li><p><strong>$P_t^-$</strong> (来自您圈出的公式)：我们对 <strong>“预测”</strong> 的不确定性。</p>
+</li>
+<li><p><strong>$R$</strong> (测量噪声协方差)：我们对 <strong>“测量”</strong> ($z_t$) 的不确定性。</p>
+</li>
+</ol>
+</li>
+<li><p>如果 $P_t^-$ 很大 (预测很烂)，而 $R$ 很小 (测量很准)：</p>
+<p>  $K_t$ 就会很大。系统会说：“我的预测 $\hat{x}_t^-$ 非常不靠谱，但我收到的测量 $z_t$ 非常准。我要 重度 依赖测量值来修正我的预测。”</p>
+</li>
+<li><p>如果 $P_t^-$ 很小 (预测很准)，而 $R$ 很大 (测量很烂)：</p>
+<p>  $K_t$ 就会很小。系统会说：“我的预测 $\hat{x}_t^-$ 非常准，这个测量值 $z_t$ 噪声太大。我要 轻度 采纳（甚至忽略）这个测量值。”</p>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>您的理解（附件1）是一个非常好的高层抽象。附件2中的公式（特别是您圈出的 $P_t^-$）是实现这个抽象的数学基石。</p>
+<p>$P_t^- = FP_{t-1}F^T + Q$ 这个公式的作用是<strong>量化“预测”步骤的不确定性</strong>，而这个不确定性 $P_t^-$ 会被卡尔曼增益 $K_t$ 用来 <strong>决定“修正”步骤的权重</strong>，从而确保最终融合了预测和测量的 $\hat{x}_t$ 是“最优”的。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -204,7 +956,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-12-22 14:14:13 / 修改时间：15:21:42" itemprop="dateCreated datePublished" datetime="2025-12-22T14:14:13+08:00">2025-12-22</time>
+      <time title="创建时间：2025-12-22 14:14:13 / 修改时间：15:22:50" itemprop="dateCreated datePublished" datetime="2025-12-22T14:14:13+08:00">2025-12-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -228,16 +980,12 @@
     <div class="post-body" itemprop="articleBody">
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       

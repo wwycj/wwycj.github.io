@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wwycj.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="源文件这是一个非常好的问题！用一个“烧水壶加热系统”的例子来理解您图片中的状态空间表达式和卡尔曼滤波，是一个绝佳的类比。 这套系统（卡尔曼滤波）的核心思想是：我们对一个系统有两个信息来源，一个是基于物理模型的“预测”，另一个是带噪声的“测量”。卡尔曼滤波能以最优的方式，将这两者“融合”起来，得到一个比单独的预测或测量都更准确的估计。 让我们用烧水壶来拆解您图片中的两个方程：  目标我们的目标是：实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gemini_卡尔曼状态方程理解">
+<meta property="og:url" content="https://wwycj.github.io/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B%E7%90%86%E8%A7%A3/index.html">
+<meta property="og:site_name" content="一隅">
+<meta property="og:description" content="源文件这是一个非常好的问题！用一个“烧水壶加热系统”的例子来理解您图片中的状态空间表达式和卡尔曼滤波，是一个绝佳的类比。 这套系统（卡尔曼滤波）的核心思想是：我们对一个系统有两个信息来源，一个是基于物理模型的“预测”，另一个是带噪声的“测量”。卡尔曼滤波能以最优的方式，将这两者“融合”起来，得到一个比单独的预测或测量都更准确的估计。 让我们用烧水壶来拆解您图片中的两个方程：  目标我们的目标是：实">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-22T08:20:56.000Z">
+<meta property="article:modified_time" content="2025-12-22T08:20:56.487Z">
+<meta property="article:author" content="noddlerice">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wwycj.github.io/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B%E7%90%86%E8%A7%A3/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wwycj.github.io/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B%E7%90%86%E8%A7%A3/","path":"posts/gemini_卡尔曼状态方程理解/","title":"gemini_卡尔曼状态方程理解"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>gemini_卡尔曼状态方程理解 | 一隅</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">一隅</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">十年饮冰，难凉热血</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B-State-Equation-x-k-Ax-k-1-Bu-k-w-k"><span class="nav-number">2.</span> <span class="nav-text">1. 状态方程 (State Equation): $x_k &#x3D; Ax_{k-1} + Bu_k + w_k$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%A7%82%E6%B5%8B%E6%96%B9%E7%A8%8B-Observation-Equation-y-k-Cx-k-v-k"><span class="nav-number">3.</span> <span class="nav-text">2. 观测方程 (Observation Equation): $y_k &#x3D; Cx_k + v_k$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B-%E7%83%A7%E6%B0%B4%E5%A3%B6%E7%89%88"><span class="nav-number">4.</span> <span class="nav-text">卡尔曼滤波的工作流程 (烧水壶版)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E9%A2%84%E6%B5%8B-Predict"><span class="nav-number">4.1.</span> <span class="nav-text">1. 预测 (Predict)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%9B%B4%E6%96%B0-Update"><span class="nav-number">4.2.</span> <span class="nav-text">2. 更新 (Update)</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="noddlerice"
+      src="/images/flower.jpg">
+  <p class="site-author-name" itemprop="name">noddlerice</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wwycj.github.io/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/flower.jpg">
+      <meta itemprop="name" content="noddlerice">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一隅">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="gemini_卡尔曼状态方程理解 | 一隅">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          gemini_卡尔曼状态方程理解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-22 16:20:56" itemprop="dateCreated datePublished" datetime="2025-12-22T16:20:56+08:00">2025-12-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://gemini.google.com/share/fd7cfb4d05fa">源文件</a><br>这是一个非常好的问题！用一个“烧水壶加热系统”的例子来理解您图片中的状态空间表达式和卡尔曼滤波，是一个绝佳的类比。</p>
+<p>这套系统（卡尔曼滤波）的核心思想是：<strong>我们对一个系统有两个信息来源，一个是基于物理模型的“预测”，另一个是带噪声的“测量”。卡尔曼滤波能以最优的方式，将这两者“融合”起来，得到一个比单独的预测或测量都更准确的估计。</strong></p>
+<p>让我们用烧水壶来拆解您图片中的两个方程：</p>
+<hr>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>我们的目标是：<strong>实时、尽可能准确地知道水壶里水的 _真实_ 温度。</strong></p>
+<p>但问题是：</p>
+<ol>
+<li><p>我们的物理模型（水加热多快，冷却多快）不是100%准确的。</p>
+</li>
+<li><p>我们的温度计（传感器）也不是100%准确的。</p>
+</li>
+</ol>
+<hr>
+<h3 id="1-状态方程-State-Equation-x-k-Ax-k-1-Bu-k-w-k"><a href="#1-状态方程-State-Equation-x-k-Ax-k-1-Bu-k-w-k" class="headerlink" title="1. 状态方程 (State Equation): $x_k = Ax_{k-1} + Bu_k + w_k$"></a>1. 状态方程 (State Equation): $x_k = Ax_{k-1} + Bu_k + w_k$</h3><p>这个方程描述的是 <strong>“我们 _预测_ 水温会如何变化”</strong>，它基于物理规律。</p>
+<ul>
+<li><p><strong>$x_k$ (状态):</strong> 这就是我们最关心的量——在 $k$ 时刻，水的 <strong>真实温度</strong>。这是我们想知道但无法直接看到的“幕后”真相。</p>
+<ul>
+<li>_例子：_ $x_k$ = $k$ 时刻的真实水温 (比如 80.3°C)。</li>
+</ul>
+</li>
+<li><p><strong>$x_{k-1}$ (上一时刻的状态):</strong> $k-1$ 时刻的真实水温。</p>
+<ul>
+<li>_例子：_ $x_{k-1}$ = $k-1$ 时刻的真实水温 (比如 79.8°C)。</li>
+</ul>
+</li>
+<li><p><strong>$A$ (状态转移矩阵):</strong> 系统如何“自然”演变。在没有“外力”的情况下，上一刻的状态如何过渡到这一刻。</p>
+<ul>
+<li>_例子：_ 水会向空气散热。假设每秒钟，水温会损失掉与环境温差的 0.1% 。 $A$ 就代表了这个冷却效应（例如 $A = 0.999$）。 $A \cdot x_{k-1}$ 就表示“上一秒是79.8°C，由于散热，这一秒它 _应该_ 变成 79.72°C”。</li>
+</ul>
+</li>
+<li><p><strong>$u_k$ (控制输入):</strong> 我们对系统施加的“已知”的外部动作。</p>
+<ul>
+<li>_例子：_ 加热器的开关状态。$u_k = 1$ (开) 或 $u_k = 0$ (关)。</li>
+</ul>
+</li>
+<li><p><strong>$B$ (控制输入矩阵):</strong> 我们的控制动作 $u_k$ 对状态 $x_k$ 有多大影响。</p>
+<ul>
+<li>_例子：_ 加热器的功率。$B$ 代表“当 $u_k=1$ (开) 时，每秒钟能使水温升高 0.5°C”。</li>
+</ul>
+</li>
+<li><p><strong>$w_k$ (过程噪声):</strong> 这是 <strong>关键点1</strong>。它代表了 <strong>“我们模型 _预测_ 的不确定性”</strong>，或者叫“系统的真实抖动”。</p>
+<ul>
+<li><p>_例子：_</p>
+<ol>
+<li><p><strong>模型不准：</strong> 我们以为 $B = 0.5°C/\text{s}$，但实际上电源电压在波动，导致加热功率时高时低。</p>
+</li>
+<li><p><strong>环境干扰：</strong> 一阵风吹过，导致 $A$ 代表的散热效应突然增强了。</p>
+</li>
+<li><p><strong>未建模的物理：</strong> 水壶底部的加热并不均匀，导致水内部有湍流。</p>
+</li>
+</ol>
+</li>
+<li><p>$w_k$ 是真实发生在水壶 _物理系统_ 上的、我们的方程没有（或无法）完美描述的扰动。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>状态方程小结：</p>
+<p>(这一秒的真实水温) = (上一秒水温 $\times$ 散热系数) + (加热器状态 $\times$ 加热功率) + (各种预料之外的物理扰动)</p>
+<p>$\text{Prediction} = \text{Model}(x_{k-1}, u_k) + \text{ProcessNoise}$</p>
+<hr>
+<h3 id="2-观测方程-Observation-Equation-y-k-Cx-k-v-k"><a href="#2-观测方程-Observation-Equation-y-k-Cx-k-v-k" class="headerlink" title="2. 观测方程 (Observation Equation): $y_k = Cx_k + v_k$"></a>2. 观测方程 (Observation Equation): $y_k = Cx_k + v_k$</h3><p>这个方程描述的是 <strong>“我们 _观测_ 到了什么”</strong>，它基于我们的传感器。</p>
+<ul>
+<li><p><strong>$y_k$ (观测值):</strong> 我们从传感器（温度计）上 _读出_ 的数值。</p>
+<ul>
+<li>_例子：_ $y_k$ = 温度计显示 81.1°C。</li>
+</ul>
+</li>
+<li><p><strong>$x_k$ (状态):</strong> 还是那个 $k$ 时刻的 <strong>真实水温</strong> (比如 80.3°C)。</p>
+</li>
+<li><p><strong>$C$ (观测矩阵):</strong> 真实状态 $x_k$ 和观测值 $y_k$ 之间的关系。</p>
+<ul>
+<li><p>_例子：_ 在这个例子里很简单，温度计就是想读出温度。所以 $C = 1$。</p>
+</li>
+<li><p>_(假如 $x_k$ 是摄氏度，但 $y_k$ 是华氏度，那么 $C = 1.8$，并且方程里还要加一个 “+32” 的常数项)。_</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$v_k$ (观测噪声):</strong> 这是 <strong>关键点2</strong>。它代表了 <strong>“我们 _测量_ 的不确定性”</strong>，或者叫“传感器的误差”。</p>
+<ul>
+<li><p>_例子：_</p>
+<ol>
+<li><p><strong>传感器不准：</strong> 这是一个廉价的温度计，它本身就有 $\pm 1°C$ 的随机误差。</p>
+</li>
+<li><p><strong>电子噪声：</strong> 如果是电子温度计，电路本身有热噪声，导致读数在真实值附近跳动。</p>
+</li>
+<li><p><strong>读取误差：</strong> 如果是水银温度计，你读数时可能看错了刻度。</p>
+</li>
+</ol>
+</li>
+<li><p>$v_k$ 是发生在 _传感器_ 上的误差，它没有改变水的真实温度 $x_k$，它只污染了我们的读数 $y_k$。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>观测方程小结：</p>
+<p>(温度计读数) = (真实水温 $\times$ 1) + (温度计自身的随机误差)</p>
+<p>$\text{Measurement} = \text{Sensor}(x_k) + \text{MeasurementNoise}$</p>
+<hr>
+<h3 id="卡尔曼滤波的工作流程-烧水壶版"><a href="#卡尔曼滤波的工作流程-烧水壶版" class="headerlink" title="卡尔曼滤波的工作流程 (烧水壶版)"></a>卡尔曼滤波的工作流程 (烧水壶版)</h3><p>现在，卡尔曼滤波登场了。它是一个在 <strong>预测 (Predict)</strong> 和 <strong>更新 (Update)</strong> 之间循环的算法：</p>
+<p><strong>时间 $k$ 开始时：</strong> 我们有一个 $k-1$ 时刻的最佳估计值 $\hat{x}_{k-1}$ (比如 79.8°C)，我们对这个估计值也有一个“置信度”（协方差 $P_{k-1}$）。</p>
+<h4 id="1-预测-Predict"><a href="#1-预测-Predict" class="headerlink" title="1. 预测 (Predict)"></a>1. 预测 (Predict)</h4><p>卡尔曼滤波 <strong>首先只用“状态方程”</strong> 来预测 $k$ 时刻的状态：</p>
+<ul>
+<li><p>它想： “根据我上一秒的估计 $\hat{x}_{k-1}$ (79.8°C)，和我的物理模型 (A和B)，我知道加热器是开着的 ($u_k=1$)。所以我 预测 这一秒的温度 $\hat{x}_k^{-}$ 应该是：</p>
+<p>  $\hat{x}_k^{-} = (0.999 \times 79.8) + (0.5 \times 1) = 79.72 + 0.5 = 80.22°C$。”</p>
+</li>
+<li><p><strong>它同时想：</strong> “但是，我的这个模型不完美 (因为有 $w_k$)，而且我上一秒的估计 $\hat{x}_{k-1}$ 也不是100%准的。所以我这个 80.22°C 的预测，它自身也有一个 _不确定性_（预测协方差 $P_k^{-}$）。”</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>此时，我们有了一个“预测值”：80.22°C （和它的不确定度 $P_k^{-}$）</strong></p>
+</blockquote>
+<h4 id="2-更新-Update"><a href="#2-更新-Update" class="headerlink" title="2. 更新 (Update)"></a>2. 更新 (Update)</h4><p>现在，卡尔曼滤波 <strong>拿来了“观测方程”的测量值 $y_k$</strong>：</p>
+<ul>
+<li><p><strong>它看了一眼温度计：</strong> “哦？温度计 $y_k$ 的读数是 81.1°C。”</p>
+</li>
+<li><p><strong>它知道：</strong> “这个温度计也不准 (因为它有 $v_k$)，它自带一个 _不确定性_ (测量协方差 $R$)。”</p>
+</li>
+</ul>
+<p>最关键的一步：融合</p>
+<p>卡尔曼滤波现在手上有两个关于 $k$ 时刻温度的“说法”：</p>
+<ol>
+<li><p><strong>预测 $\hat{x}_k^{-}$：</strong> 80.22°C (来自模型，不确定度为 $P_k^{-}$)</p>
+</li>
+<li><p><strong>测量 $y_k$：</strong> 81.1°C (来自传感器，不确定度为 $R$)</p>
+</li>
+</ol>
+<p>它会计算一个 <strong>“卡尔曼增益 (K)”</strong>，这个 K 本质上是一个 0 到 1 之间的权重。</p>
+<ul>
+<li><p>如果模型很准 ( $w_k$ 很小)，传感器很烂 ( $v_k$ 很大)：</p>
+<p>  卡尔曼增益 K 会很 小。滤波会说：“我更相信我的预测 (80.22°C)。” 最终的估计值会非常接近 80.22°C。</p>
+</li>
+<li><p>如果模型很烂 ( $w_k$ 很大)，传感器很准 ( $v_k$ 很小)：</p>
+<p>  卡尔曼增益 K 会很 大。滤波会说：“我更相信我的测量 (81.1°C)。” 最终的估计值会非常接近 81.1°C。</p>
+</li>
+</ul>
+<p>它使用这个 K，将测量值 $y_k$ 和预测值 $\hat{x}_k^{-}$ 进行“加权平均”：</p>
+<p><strong>$\hat{x}_k = \hat{x}_k^{-} + K \cdot (y_k - C\hat{x}_k^{-})$</strong></p>
+<ul>
+<li><p>$\hat{x}_k$ 是我们 _最终的、最好的_ 估计值。</p>
+</li>
+<li><p>$(y_k - C\hat{x}_k^{-})$ 是“惊喜”：(实际测量值 - 预期测量值)。</p>
+</li>
+<li><p><strong>翻译：</strong> “从我的预测 (80.22°C) 开始，然后加上 _一定比例(K)_ 的‘惊喜’ (81.1°C - 80.22°C = 0.88°C)。”</p>
+</li>
+</ul>
+<p>假设计算出 $K = 0.3$。</p>
+<p>$\hat{x}_k = 80.22 + 0.3 \times (81.1 - 80.22) = 80.22 + 0.264 = 80.484°C$。</p>
+<blockquote>
+<p>此时，我们有了一个“更新后”的最佳估计：80.484°C。</p>
+<p>这个值是融合了预测和测量之后的结果，它比单独的 80.22°C 或 81.1°C 都更可信。</p>
+</blockquote>
+<p>这个 $\hat{x}_k$ (80.484°C) 将作为 $k+1$ 时刻的 $\hat{x}_{k-1}$，进入下一个“预测-更新”循环。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E9%A2%84%E6%B5%8B%E6%9B%B4%E6%96%B0%E5%85%AC%E7%A4%BA%E6%8E%A8%E5%AF%BC/" rel="prev" title="gemini_卡尔曼预测更新公示推导">
+                  <i class="fa fa-angle-left"></i> gemini_卡尔曼预测更新公示推导
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/" rel="next" title="卡尔曼滤波">
+                  卡尔曼滤波 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">noddlerice</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

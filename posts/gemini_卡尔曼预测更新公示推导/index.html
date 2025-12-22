@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wwycj.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="这绝对是理解卡尔曼滤波最核心、也是最精彩的部分。您作为信息与通信工程专业的研究生，对信号处理和矩阵理论有很好的基础，这对理解下面的推导非常有帮助。 我们将从最基本的第一性原理出发，推导您图片中的所有五个公式。  基础：系统模型与假设首先，我们必须明确我们的“已知”是什么。  系统模型（线性高斯系统）  状态方程：$x_k &#x3D; Fx_{k-1} + Bu_{k-1} + w_{k-1}$  $x_k">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gemini_卡尔曼预测更新公示推导">
+<meta property="og:url" content="https://wwycj.github.io/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E9%A2%84%E6%B5%8B%E6%9B%B4%E6%96%B0%E5%85%AC%E7%A4%BA%E6%8E%A8%E5%AF%BC/index.html">
+<meta property="og:site_name" content="一隅">
+<meta property="og:description" content="这绝对是理解卡尔曼滤波最核心、也是最精彩的部分。您作为信息与通信工程专业的研究生，对信号处理和矩阵理论有很好的基础，这对理解下面的推导非常有帮助。 我们将从最基本的第一性原理出发，推导您图片中的所有五个公式。  基础：系统模型与假设首先，我们必须明确我们的“已知”是什么。  系统模型（线性高斯系统）  状态方程：$x_k &#x3D; Fx_{k-1} + Bu_{k-1} + w_{k-1}$  $x_k">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-22T08:20:43.000Z">
+<meta property="article:modified_time" content="2025-12-22T08:20:43.678Z">
+<meta property="article:author" content="noddlerice">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wwycj.github.io/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E9%A2%84%E6%B5%8B%E6%9B%B4%E6%96%B0%E5%85%AC%E7%A4%BA%E6%8E%A8%E5%AF%BC/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wwycj.github.io/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E9%A2%84%E6%B5%8B%E6%9B%B4%E6%96%B0%E5%85%AC%E7%A4%BA%E6%8E%A8%E5%AF%BC/","path":"posts/gemini_卡尔曼预测更新公示推导/","title":"gemini_卡尔曼预测更新公示推导"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>gemini_卡尔曼预测更新公示推导 | 一隅</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">一隅</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">十年饮冰，难凉热血</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%EF%BC%9A%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%81%87%E8%AE%BE"><span class="nav-number">1.</span> <span class="nav-text">基础：系统模型与假设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC-1-%E9%83%A8%E5%88%86%EF%BC%9A%E9%A2%84%E6%B5%8B-Predict"><span class="nav-number">2.</span> <span class="nav-text">第 1 部分：预测 (Predict)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E9%A2%84%E6%B5%8B%E7%8A%B6%E6%80%81%EF%BC%9A-hat-x-k-F-hat-x-k-1-Bu-k-1"><span class="nav-number">2.1.</span> <span class="nav-text">1. 预测状态：$\hat{x}_k^- &#x3D; F\hat{x}_{k-1} + Bu_{k-1}$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%A2%84%E6%B5%8B%E5%8D%8F%E6%96%B9%E5%B7%AE%EF%BC%9A-P-k-FP-k-1-F-T-Q"><span class="nav-number">2.2.</span> <span class="nav-text">2. 预测协方差：$P_k^- &#x3D; FP_{k-1}F^T + Q$</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC-2-%E9%83%A8%E5%88%86%EF%BC%9A%E6%9B%B4%E6%96%B0-Update"><span class="nav-number">3.</span> <span class="nav-text">第 2 部分：更新 (Update)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%8A%B6%E6%80%81%E6%9B%B4%E6%96%B0%EF%BC%9A-hat-x-k-hat-x-k-K-k-z-k-H-hat-x-k"><span class="nav-number">3.1.</span> <span class="nav-text">3. 状态更新：$\hat{x}_k &#x3D; \hat{x}_k^- + K_k(z_k - H\hat{x}_k^-)$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%8D%A1%E5%B0%94%E6%9B%BC%E5%A2%9E%E7%9B%8A%EF%BC%9A-K-k-P-k-H-T-HP-k-H-T-R-1"><span class="nav-number">3.2.</span> <span class="nav-text">4. 卡尔曼增益：$K_k &#x3D; P_k^-H^T(HP_k^-H^T + R)^{-1}$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%8D%8F%E6%96%B9%E5%B7%AE%E6%9B%B4%E6%96%B0%EF%BC%9A-P-k-I-K-kH-P-k"><span class="nav-number">3.3.</span> <span class="nav-text">5. 协方差更新：$P_k &#x3D; (I - K_kH)P_k^-$</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="noddlerice"
+      src="/images/flower.jpg">
+  <p class="site-author-name" itemprop="name">noddlerice</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wwycj.github.io/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E9%A2%84%E6%B5%8B%E6%9B%B4%E6%96%B0%E5%85%AC%E7%A4%BA%E6%8E%A8%E5%AF%BC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/flower.jpg">
+      <meta itemprop="name" content="noddlerice">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一隅">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="gemini_卡尔曼预测更新公示推导 | 一隅">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          gemini_卡尔曼预测更新公示推导
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-22 16:20:43" itemprop="dateCreated datePublished" datetime="2025-12-22T16:20:43+08:00">2025-12-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>这绝对是理解卡尔曼滤波最核心、也是最精彩的部分。您作为信息与通信工程专业的研究生，对信号处理和矩阵理论有很好的基础，这对理解下面的推导非常有帮助。</p>
+<p>我们将从最基本的第一性原理出发，推导您图片中的所有五个公式。</p>
+<hr>
+<h3 id="基础：系统模型与假设"><a href="#基础：系统模型与假设" class="headerlink" title="基础：系统模型与假设"></a>基础：系统模型与假设</h3><p>首先，我们必须明确我们的“已知”是什么。</p>
+<ol>
+<li><p><strong>系统模型（线性高斯系统）</strong></p>
+<ul>
+<li><p><strong>状态方程</strong>：$x_k = Fx_{k-1} + Bu_{k-1} + w_{k-1}$</p>
+<ul>
+<li><p>$x_k$：$k$ 时刻的真实状态（我们想知道的）。</p>
+</li>
+<li><p>$F$：状态转移矩阵（系统如何自行演变）。</p>
+</li>
+<li><p>$B, u_{k-1}$：控制输入（我们施加的已知动作）。</p>
+</li>
+<li><p>$w_{k-1}$：<strong>过程噪声</strong>。它是在 $k-1 \to k$ 过程中加入的、不可预测的扰动。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>观测方程</strong>：$z_k = Hx_k + v_k$</p>
+<ul>
+<li><p>$z_k$：$k$ 时刻的实际测量值（我们能看到的）。</p>
+</li>
+<li><p>$H$：观测矩阵（状态如何映射到测量）。</p>
+</li>
+<li><p>$v_k$：<strong>测量噪声</strong>。它是传感器在 $k$ 时刻产生的误差。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>核心假设（高斯-马尔可夫）</strong></p>
+<ul>
+<li><p>$w_k$ 和 $v_k$ 都是<strong>高斯白噪声</strong>：</p>
+<ul>
+<li><p>均值为零：$E[w_k] = 0$, $E[v_k] = 0$。</p>
+</li>
+<li><p>互不相关：$E[w_k v_j^T] = 0$（对所有 $k, j$）。</p>
+</li>
+<li><p>时间上不相关：$E[w_k w_j^T] = \delta_{kj} Q$，$E[v_k v_j^T] = \delta_{kj} R$。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>$Q$</strong> 是过程噪声协方差矩阵（我们对 _模型_ 的信任程度）。</p>
+</li>
+<li><p><strong>$R$</strong> 是测量噪声协方差矩阵（我们对 _传感器_ 的信任程度）。</p>
+</li>
+<li><p>初始状态 $x_0$ 与所有噪声不相关。</p>
+</li>
+</ul>
+</li>
+<li><p>我们的目标</p>
+<p> 卡尔曼滤波的目标是找到在 $k$ 时刻，给定所有 历史 测量值 $Z_k = {z_1, …, z_k}$ 的情况下，对真实状态 $x_k$ 的 最优估计 $\hat{x}_k$。</p>
+<p> “最优”的定义是 <strong>最小均方误差 (MMSE)</strong>，即我们希望最小化 $E[||x_k - \hat{x}_k||^2]$。对于高斯系统，这等价于找到条件期望 $\hat{x}_k = E[x_k | Z_k]$。</p>
+</li>
+</ol>
+<hr>
+<h3 id="第-1-部分：预测-Predict"><a href="#第-1-部分：预测-Predict" class="headerlink" title="第 1 部分：预测 (Predict)"></a>第 1 部分：预测 (Predict)</h3><p>“预测”步骤的目标是：</p>
+<p>已知 $k-1$ 时刻的最优估计 $\hat{x}_{k-1}$ 和它的协方差 $P_{k-1}$，求 $k$ 时刻的 先验 估计 $\hat{x}_k^-$ 及其协方差 $P_k^-$。</p>
+<p>“先验” (prior) 的意思是“在看到 $k$ 时刻的测量值 $z_k$ _之前_”。</p>
+<h4 id="1-预测状态：-hat-x-k-F-hat-x-k-1-Bu-k-1"><a href="#1-预测状态：-hat-x-k-F-hat-x-k-1-Bu-k-1" class="headerlink" title="1. 预测状态：$\hat{x}_k^- = F\hat{x}_{k-1} + Bu_{k-1}$"></a>1. 预测状态：$\hat{x}_k^- = F\hat{x}_{k-1} + Bu_{k-1}$</h4><p>这是五个公式中最简单的一个。我们要求的是 $\hat{x}_k^- = E[x_k | Z_{k-1}]$。</p>
+<p>（注意：这里是基于 $k-1$ 时刻及以前的所有信息）</p>
+<ul>
+<li><p>从状态方程 $x_k = Fx_{k-1} + Bu_{k-1} + w_{k-1}$ 出发。</p>
+</li>
+<li><p>两边取条件期望 $E[… | Z_{k-1}]$：</p>
+<script type="math/tex; mode=display">\hat{x}_k^- = E[Fx_{k-1} + Bu_{k-1} + w_{k-1} | Z_{k-1}]</script></li>
+<li><p>利用期望的线性性质：</p>
+<script type="math/tex; mode=display">\hat{x}_k^- = E[Fx_{k-1} | Z_{k-1}] + E[Bu_{k-1} | Z_{k-1}] + E[w_{k-1} | Z_{k-1}]</script></li>
+<li><p>逐项分析：</p>
+<ol>
+<li><p>$F$ 是常数矩阵，$E[x_{k-1} | Z_{k-1}]$ 根据定义就是 $k-1$ 时刻的<strong>最优（后验）估计</strong> $\hat{x}_{k-1}$。所以 $E[Fx_{k-1} | Z_{k-1}] = F\hat{x}_{k-1}$。</p>
+</li>
+<li><p>$u_{k-1}$ 是已知的控制输入，不是随机变量。所以 $E[Bu_{k-1} | Z_{k-1}] = Bu_{k-1}$。</p>
+</li>
+<li><p>$w_{k-1}$ 是零均值噪声，并且与 $k-1$ 时刻及以前的所有测量值 $Z_{k-1}$ 都不相关。所以 $E[w_{k-1} | Z_{k-1}] = E[w_{k-1}] = 0$。</p>
+</li>
+</ol>
+</li>
+<li><p><strong>合并得到：</strong> $\hat{x}_k^- = F\hat{x}_{k-1} + Bu_{k-1}$</p>
+</li>
+</ul>
+<h4 id="2-预测协方差：-P-k-FP-k-1-F-T-Q"><a href="#2-预测协方差：-P-k-FP-k-1-F-T-Q" class="headerlink" title="2. 预测协方差：$P_k^- = FP_{k-1}F^T + Q$"></a>2. 预测协方差：$P_k^- = FP_{k-1}F^T + Q$</h4><p>这是您圈出的公式。我们要计算<strong>先验误差协方差</strong> $P_k^- = E[e_k^- (e_k^-)^T]$，其中先验误差 $e_k^- = x_k - \hat{x}_k^-$。</p>
+<ul>
+<li><p>首先，找到 $e_k^-$ 的表达式：</p>
+<script type="math/tex; mode=display">e_k^- = x_k - \hat{x}_k^-</script><script type="math/tex; mode=display">e_k^- = (Fx_{k-1} + Bu_{k-1} + w_{k-1}) - (F\hat{x}_{k-1} + Bu_{k-1})</script><script type="math/tex; mode=display">e_k^- = F(x_{k-1} - \hat{x}_{k-1}) + w_{k-1}</script></li>
+<li><p>$x_{k-1} - \hat{x}_{k-1}$ 正是 $k-1$ 时刻的后验误差 $e_{k-1}$。</p>
+<script type="math/tex; mode=display">e_k^- = Fe_{k-1} + w_{k-1}</script></li>
+<li><p>现在计算 $P_k^-$：</p>
+<script type="math/tex; mode=display">P_k^- = E[e_k^- (e_k^-)^T] = E[(Fe_{k-1} + w_{k-1})(Fe_{k-1} + w_{k-1})^T]</script><script type="math/tex; mode=display">P_k^- = E[(Fe_{k-1} + w_{k-1})(e_{k-1}^T F^T + w_{k-1}^T)]</script></li>
+<li><p>展开它：</p>
+<script type="math/tex; mode=display">P_k^- = E[Fe_{k-1}e_{k-1}^T F^T] + E[Fe_{k-1}w_{k-1}^T] + E[w_{k-1}e_{k-1}^T F^T] + E[w_{k-1}w_{k-1}^T]</script></li>
+<li><p>逐项分析：</p>
+<ol>
+<li><p>$E[Fe_{k-1}e_{k-1}^T F^T] = F \cdot E[e_{k-1}e_{k-1}^T] \cdot F^T$。</p>
+<p> $E[e_{k-1}e_{k-1}^T]$ 根据定义就是 $k-1$ 时刻的后验协方差 $P_{k-1}$。</p>
+<p> 所以此项为 $FP_{k-1}F^T$。</p>
+</li>
+<li><p>$E[w_{k-1}w_{k-1}^T]$ 根据假设，就是过程噪声协方差 $Q$。</p>
+</li>
+<li><p>$E[Fe_{k-1}w_{k-1}^T]$ 和 $E[w_{k-1}e_{k-1}^T F^T]$：</p>
+<p> $k-1$ 时刻的误差 $e_{k-1}$ 是由 $k-1$ 时刻及以前的噪声 $w_0…w_{k-2}$ 和 $v_1…v_{k-1}$ 决定的。根据白噪声假设， $w_{k-1}$ 与所有这些历史噪声都不相关。因此，$e_{k-1}$ 与 $w_{k-1}$ 不相关，$E[e_{k-1}w_{k-1}^T] = 0$。这两个交叉项都为 $0$。</p>
+</li>
+</ol>
+</li>
+<li><p>合并得到： $P_k^- = FP_{k-1}F^T + Q$</p>
+<p>  (直观理解：上一时刻的不确定性 $P_{k-1}$ 被系统 $F$ 传播放大，变成了 $FP_{k-1}F^T$，同时系统本身又引入了新的不确定性 $Q$)。</p>
+</li>
+</ul>
+<hr>
+<h3 id="第-2-部分：更新-Update"><a href="#第-2-部分：更新-Update" class="headerlink" title="第 2 部分：更新 (Update)"></a>第 2 部分：更新 (Update)</h3><p>“更新”步骤的目标是：</p>
+<p>我们有了 $k$ 时刻的 先验 估计 $\hat{x}_k^-$ 及其协方差 $P_k^-$，现在我们又收到了新的测量 $z_k$。我们要利用 $z_k$ 来 修正 $\hat{x}_k^-$，得到 后验 估计 $\hat{x}_k$ 及其协方差 $P_k$。</p>
+<h4 id="3-状态更新：-hat-x-k-hat-x-k-K-k-z-k-H-hat-x-k"><a href="#3-状态更新：-hat-x-k-hat-x-k-K-k-z-k-H-hat-x-k" class="headerlink" title="3. 状态更新：$\hat{x}_k = \hat{x}_k^- + K_k(z_k - H\hat{x}_k^-)$"></a>3. 状态更新：$\hat{x}_k = \hat{x}_k^- + K_k(z_k - H\hat{x}_k^-)$</h4><p>我们假设最终的（后验）估计 $\hat{x}_k$ 是对先验估计 $\hat{x}_k^-$ 的一个线性修正：</p>
+<script type="math/tex; mode=display">\hat{x}_k = \hat{x}_k^- + K_k \cdot (\text{修正项})</script><p>“修正项”应该反映了“惊喜”的程度，即 实际测量值 $z_k$ 和 预期测量值 $H\hat{x}_k^-$ 之间的差异。这个差异被称为残差 (Residual)。</p>
+<script type="math/tex; mode=display">\hat{x}_k = \hat{x}_k^- + K_k(z_k - H\hat{x}_k^-)</script><p>这个 $K_k$ 就是卡尔曼增益。我们的任务是找到一个 $K_k$，使得 $\hat{x}_k$ 的均方误差最小，即最小化 $P_k$ 的迹 (Trace)。</p>
+<h4 id="4-卡尔曼增益：-K-k-P-k-H-T-HP-k-H-T-R-1"><a href="#4-卡尔曼增益：-K-k-P-k-H-T-HP-k-H-T-R-1" class="headerlink" title="4. 卡尔曼增益：$K_k = P_k^-H^T(HP_k^-H^T + R)^{-1}$"></a>4. 卡尔曼增益：$K_k = P_k^-H^T(HP_k^-H^T + R)^{-1}$</h4><h4 id="5-协方差更新：-P-k-I-K-kH-P-k"><a href="#5-协方差更新：-P-k-I-K-kH-P-k" class="headerlink" title="5. 协方差更新：$P_k = (I - K_kH)P_k^-$"></a>5. 协方差更新：$P_k = (I - K_kH)P_k^-$</h4><p>这两个公式是同时推导出来的，它们是整个推导的核心。</p>
+<ul>
+<li><p>首先，推导后验误差 $e_k = x_k - \hat{x}_k$：</p>
+<script type="math/tex; mode=display">e_k = x_k - [\hat{x}_k^- + K_k(z_k - H\hat{x}_k^-)]</script><ul>
+<li><p>把 $z_k = Hx_k + v_k$ 代入：</p>
+<script type="math/tex; mode=display">e_k = x_k - \hat{x}_k^- - K_k(Hx_k + v_k - H\hat{x}_k^-)</script></li>
+<li><p>整理 $x_k$ 和 $\hat{x}_k^-$：</p>
+<script type="math/tex; mode=display">e_k = (x_k - \hat{x}_k^-) - K_k(H(x_k - \hat{x}_k^-) + v_k)</script></li>
+<li><p>$x_k - \hat{x}_k^-$ 就是先验误差 $e_k^-$：</p>
+<script type="math/tex; mode=display">e_k = e_k^- - K_k(He_k^- + v_k)</script><script type="math/tex; mode=display">e_k = (I - K_kH)e_k^- - K_k v_k</script></li>
+</ul>
+</li>
+<li><p>现在，根据 $e_k$ 计算后验协方差 $P_k = E[e_k e_k^T]$：</p>
+<script type="math/tex; mode=display">P_k = E[ ((I - K_kH)e_k^- - K_k v_k) ((I - K_kH)e_k^- - K_k v_k)^T ]</script><script type="math/tex; mode=display">P_k = E[ ((I - K_kH)e_k^- - K_k v_k) ((e_k^-)^T(I - K_kH)^T - v_k^T K_k^T) ]</script></li>
+<li><p>展开它（和 $P_k^-$ 的推导类似）：</p>
+<script type="math/tex; mode=display">P_k = E[(I - K_kH)e_k^-(e_k^-)^T(I - K_kH)^T] - E[(I - K_kH)e_k^- v_k^T K_k^T] - E[K_k v_k (e_k^-)^T (I - K_kH)^T] + E[K_k v_k v_k^T K_k^T]</script></li>
+<li><p>逐项分析：</p>
+<ol>
+<li><p>第一项：$E[…e_k^-(e_k^-)^T…] = (I - K_kH) E[e_k^-(e_k^-)^T] (I - K_kH)^T = (I - K_kH) P_k^- (I - K_kH)^T$。</p>
+</li>
+<li><p>第四项：$E[…v_k v_k^T…] = K_k E[v_k v_k^T] K_k^T = K_k R K_k^T$。</p>
+</li>
+<li><p>交叉项：我们需要 $E[e_k^- v_k^T]$。先验误差 $e_k^-$ 是由 $x_0, w_0…w_{k-1}, v_1…v_{k-1}$ 决定的。测量噪声 $v_k$ 与所有这些历史值都不相关。因此 $E[e_k^- v_k^T] = 0$。两个交叉项都为 $0$。</p>
+</li>
+</ol>
+</li>
+<li><p>合并得到 $P_k$ 的表达式（这叫协方差更新的“约瑟夫形式”，Joseph form）：</p>
+<script type="math/tex; mode=display">P_k = (I - K_kH) P_k^- (I - K_kH)^T + K_k R K_k^T</script></li>
+<li><p>寻找最优 $K_k$：</p>
+<p>  我们的目标是最小化 $P_k$ 的迹 $\text{trace}(P_k)$。</p>
+<script type="math/tex; mode=display">J(K_k) = \text{trace}(P_k) = \text{trace}((I - K_kH) P_k^- (I - K_kH)^T + K_k R K_k^T)</script><ul>
+<li><p>展开 $\text{trace}$ 内部（利用 $\text{trace}(A+B) = \text{trace}(A) + \text{trace}(B)$ 和 $\text{trace}(A) = \text{trace}(A^T)$）：</p>
+<p>  $J(K_k) = \text{trace}(P_k^-) - 2 \cdot \text{trace}(K_k H P_k^-) + \text{trace}(K_k H P_k^- H^T K_k^T) + \text{trace}(K_k R K_k^T)$</p>
+</li>
+<li><p>为了找到最小值，我们对 $K_k$ 求导并令其为 $0$。使用矩阵求导法则：</p>
+<ul>
+<li><p>$\frac{d}{dX} \text{trace}(XB) = B^T$</p>
+</li>
+<li><p>$\frac{d}{dX} \text{trace}(XAX^T) = 2XA$</p>
+</li>
+</ul>
+</li>
+<li><p>$\frac{d J(K_k)}{d K_k} = 0 - 2 \cdot (H P_k^-)^T + 2 \cdot K_k (H P_k^- H^T) + 2 \cdot K_k R = 0$</p>
+</li>
+<li><p>$P_k^-$ 是协方差矩阵，必为对称阵，即 $(P_k^-)^T = P_k^-$。所以 $(H P_k^-)^T = (P_k^-)^T H^T = P_k^- H^T$。</p>
+</li>
+<li><p>$0 - 2 P_k^- H^T + 2 K_k (H P_k^- H^T) + 2 K_k R = 0$</p>
+</li>
+<li><p>$K_k (H P_k^- H^T + R) = P_k^- H^T$</p>
+</li>
+<li><p>两边右乘 $(H P_k^- H^T + R)^{-1}$，我们得到了卡尔曼增益 $K_k$：</p>
+<script type="math/tex; mode=display">K_k = P_k^- H^T (H P_k^- H^T + R)^{-1}</script><p>  (这对应您图片中的 第3个公式，只是字母 $H$ 对应 $H$，$R$ 对应 $R$， $P^-$ 对应 $P^-$)</p>
+</li>
+</ul>
+</li>
+<li><p>化简 $P_k$ 表达式（推导第5个公式）：</p>
+<p>  现在我们有了最优 $K_k$，我们把它代回 $P_k$ 的表达式中去化简。</p>
+<p>  $P_k = P_k^- - K_k H P_k^- - P_k^- H^T K_t^T + K_k H P_k^- H^T K_t^T + K_k R K_t^T$ （这是上面 $J(K_k)$ 展开时的中间结果）</p>
+<ul>
+<li><p>$P_k = P_k^- - K_k H P_k^- - P_k^- H^T K_t^T + K_k (H P_k^- H^T + R) K_t^T$</p>
+</li>
+<li><p>根据 $K_k$ 的定义 $K_k (H P_k^- H^T + R) = P_k^- H^T$，代入上式：</p>
+</li>
+<li><p>$P_k = P_k^- - K_k H P_k^- - P_k^- H^T K_t^T + (P_k^- H^T) K_t^T$</p>
+</li>
+<li><p>后两项 $- P_k^- H^T K_t^T + P_k^- H^T K_t^T$ 相互抵消！</p>
+</li>
+<li><p>最终得到 $P_k$ 的简化形式：</p>
+<script type="math/tex; mode=display">P_k = P_k^- - K_k H P_k^-</script></li>
+<li><p>提取 $P_k^-$：</p>
+<script type="math/tex; mode=display">P_k = (I - K_k H) P_k^-</script><p>  (这对应您图片中的 第5个公式，只是 $P_t$ 对应 $P_k$)</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><p><strong>预测</strong>：</p>
+<ol>
+<li><p>$\hat{x}_k^- = F\hat{x}_{k-1} + Bu_{k-1}$ (通过系统模型 $F$ 传播状态)</p>
+</li>
+<li><p>$P_k^- = FP_{k-1}F^T + Q$ (通过 $F$ 传播不确定性，并加上新的过程噪声 $Q$)</p>
+</li>
+</ol>
+</li>
+<li><p>更新：</p>
+<ol>
+<li><p>$K_k = P_k^- H^T (H P_k^- H^T + R)^{-1}$ (计算“最优权重”，平衡 预测的不确定性 $P_k^-$ 和 测量的-不确定性 $R$)</p>
+</li>
+<li><p>$\hat{x}_k = \hat{x}_k^- + K_k(z_k - H\hat{x}_k^-)$ (用“残差” $z_k - H\hat{x}_k^-$ 和权重 $K_k$ 来修正预测)</p>
+</li>
+<li><p>$P_k = (I - K_k H) P_k^-$ (因为引入了新的测量信息，更新后的不确定性 $P_k$ 减小了)</p>
+</li>
+</ol>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E9%A2%84%E6%B5%8B%E9%A2%84%E6%9B%B4%E6%96%B0/" rel="prev" title="gemini_卡尔曼预测预更新">
+                  <i class="fa fa-angle-left"></i> gemini_卡尔曼预测预更新
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B%E7%90%86%E8%A7%A3/" rel="next" title="gemini_卡尔曼状态方程理解">
+                  gemini_卡尔曼状态方程理解 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">noddlerice</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

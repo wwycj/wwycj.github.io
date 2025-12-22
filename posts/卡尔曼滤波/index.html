@@ -19,22 +19,26 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wwycj.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="一隅">
-<meta property="og:url" content="https://wwycj.github.io/archives/index.html">
+    <meta name="description" content="状态空间表达式：  状态方程 \quad x_{k}&#x3D;Ax_{k-1}+Bu_{k}+\omega_{k} 观测方程\quad y_{k}&#x3D;Cx_{k}+v_{k}其中$A$表示状态转移方程，$B$是控制矩阵，作用于输入信号控制系统，$\omega_{k}$表示的是过程噪声，$v_{k}$是观测噪声。对该表达式的理解gemini_卡尔曼状态方程理解 卡尔曼公式的理解gemini_卡尔曼预测预更新：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="卡尔曼滤波">
+<meta property="og:url" content="https://wwycj.github.io/posts/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/index.html">
 <meta property="og:site_name" content="一隅">
+<meta property="og:description" content="状态空间表达式：  状态方程 \quad x_{k}&#x3D;Ax_{k-1}+Bu_{k}+\omega_{k} 观测方程\quad y_{k}&#x3D;Cx_{k}+v_{k}其中$A$表示状态转移方程，$B$是控制矩阵，作用于输入信号控制系统，$\omega_{k}$表示的是过程噪声，$v_{k}$是观测噪声。对该表达式的理解gemini_卡尔曼状态方程理解 卡尔曼公式的理解gemini_卡尔曼预测预更新：">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-22T08:21:13.000Z">
+<meta property="article:modified_time" content="2025-12-22T08:21:13.363Z">
 <meta property="article:author" content="noddlerice">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://wwycj.github.io/archives/">
+<link rel="canonical" href="https://wwycj.github.io/posts/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wwycj.github.io/posts/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/","path":"posts/卡尔曼滤波/","title":"卡尔曼滤波"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | 一隅</title>
+<title>卡尔曼滤波 | 一隅</title>
   
 
 
@@ -90,7 +94,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">一隅</h1>
+      <p class="site-title">一隅</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">十年饮冰，难凉热血</p>
@@ -171,129 +175,91 @@
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 5 篇日志。 继续努力。</span>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2025<span class="collection-year-count">5</span></span>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wwycj.github.io/posts/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/flower.jpg">
+      <meta itemprop="name" content="noddlerice">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一隅">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="卡尔曼滤波 | 一隅">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          卡尔曼滤波
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-22 16:21:13" itemprop="dateCreated datePublished" datetime="2025-12-22T16:21:13+08:00">2025-12-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>状态空间表达式：</p>
+<script type="math/tex; mode=display">
+状态方程 \quad x_{k}=Ax_{k-1}+Bu_{k}+\omega_{k}</script><script type="math/tex; mode=display">
+观测方程\quad y_{k}=Cx_{k}+v_{k}</script><p>其中$A$表示状态转移方程，$B$是控制矩阵，作用于输入信号控制系统，$\omega_{k}$表示的是过程噪声，$v_{k}$是观测噪声。<br>对该表达式的理解<a href="gemini_卡尔曼状态方程理解.md">gemini_卡尔曼状态方程理解</a></p>
+<p>卡尔曼公式的理解<a href="gemini_卡尔曼预测预更新.md">gemini_卡尔曼预测预更新</a>：<br>使用上一次的最优结果预测当前的值（状态变量和对应的协方差），同时使用观测值修正当前值（状态变量和协方差），得到最优的结果。<br>对推导公式的理解：<br><a href="gemini_卡尔曼预测更新公示推导.md">gemini_卡尔曼预测更新公示推导</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38364548/article/details/120250324">karman滤波仿真1</a><br><a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/control/ug/kalman-filtering.html">卡尔曼滤波仿真2</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/655375909">卡尔曼滤波仿真3</a><br>卡尔曼滤波的应用：<br>陀螺仪滤波</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-12-22T16:21:13+08:00"
-              content="2025-12-22">
-          12-22
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2/" itemprop="url">
-            <span itemprop="name">卡尔曼滤波</span>
-          </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B%E7%90%86%E8%A7%A3/" rel="prev" title="gemini_卡尔曼状态方程理解">
+                  <i class="fa fa-angle-left"></i> gemini_卡尔曼状态方程理解
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-12-22T16:20:56+08:00"
-              content="2025-12-22">
-          12-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E7%8A%B6%E6%80%81%E6%96%B9%E7%A8%8B%E7%90%86%E8%A7%A3/" itemprop="url">
-            <span itemprop="name">gemini_卡尔曼状态方程理解</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-12-22T16:20:43+08:00"
-              content="2025-12-22">
-          12-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E9%A2%84%E6%B5%8B%E6%9B%B4%E6%96%B0%E5%85%AC%E7%A4%BA%E6%8E%A8%E5%AF%BC/" itemprop="url">
-            <span itemprop="name">gemini_卡尔曼预测更新公示推导</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-12-22T16:20:36+08:00"
-              content="2025-12-22">
-          12-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/gemini_%E5%8D%A1%E5%B0%94%E6%9B%BC%E9%A2%84%E6%B5%8B%E9%A2%84%E6%9B%B4%E6%96%B0/" itemprop="url">
-            <span itemprop="name">gemini_卡尔曼预测预更新</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-12-22T14:14:13+08:00"
-              content="2025-12-22">
-          12-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
 
 </div>
   </main>
