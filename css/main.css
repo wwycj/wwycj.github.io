@@ -1385,7 +1385,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #f4ffff;
+    background: #ab69ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3006,4 +3006,41 @@ body {
 /* 文章标题颜色 (确保在黑底上够亮) */
 .posts-expand .post-title-link {
   color: #fff !important;
+}
+/* ==================================================
+   4. 字体与排版设置 (强力卡通版 - 修复标题不生效)
+   ================================================== */
+/* 1. 引入站酷快乐体 (Google Fonts) */
+@import url("https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap");
+/* 2. 【关键修改】针对所有元素进行“无差别打击” */
+/* 这里的关键是把 h1-h6 单独列出来，防止被主题默认样式覆盖 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.post-title,
+.post-title-link,
+.post-body,
+.post-button,
+.site-title,
+.menu-item,
+.sidebar-inner {
+/* 优先找快乐体 -> 找幼圆(Win) -> 找娃娃体(Mac) -> 手写风 */
+  font-family: "ZCOOL KuaiLe", "YouYuan", "幼圆", "Wawati SC", "华文娃娃", cursive !important;
+}
+/* 3. 针对标题的特殊微调 */
+.post-title,
+.post-title-link {
+  font-size: 30px !important; /* 稍微放大，卡通体太小看不清 */
+  line-height: 1.4 !important;
+  font-weight: 400 !important; /* 卡通体不需要加粗 */
+}
+/* 4. 针对摘要/正文的微调 */
+.post-body {
+  font-size: 18px !important;
+  line-height: 1.8 !important; /* 增加行间距，卡通体挤在一起很难受 */
+  letter-spacing: 1px !important; /*稍微加一点字间距 */
 }
